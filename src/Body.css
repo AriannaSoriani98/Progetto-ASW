@@ -1,0 +1,12 @@
+body{
+    background: url("/src/STABILIMENTO-BALNEARE.jpg");
+    background-repeat: no-repeat;
+
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-color: beige;
+    -o-background-size: cover;
+
+
+}

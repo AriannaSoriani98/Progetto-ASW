@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import 'animate.css';
+import HeaderName from "./HeaderName";
+import './HeaderName.css';
+import Body from "./Body";
+//import { Helmet } from 'react-helmet';
+//const TITLE = 'Benvenuto'
+//<Helmet>
+//    <title>{ TITLE }</title>
+//</Helmet>
 
 function App() {
+    const name = 'Playa Majorca'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <html>
+        <HeaderName name={name}/>
+        <Body/>
+
+      </html>
   );
 }
 
