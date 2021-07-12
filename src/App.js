@@ -1,6 +1,12 @@
 import './App.css';
 import 'animate.css';
-import Menu from "./components/Menu";
+import {Route} from 'react-router-dom'
+import Menu from "./components/menu";
+import HomePage from "./pages/HomePage";
+import PrenotazioniPage from "./pages/PrenotazioniPage";
+import ContattiPage from "./pages/ContattiPage";
+import LuogoPage from "./pages/LuogoPage";
+import Home from "./components/Home";
 
 //import { Helmet } from 'react-helmet';
 //const TITLE = 'Benvenuto'
@@ -9,26 +15,14 @@ import Menu from "./components/Menu";
 //</Helmet>
 
 function App() {
-    const name = 'Playa Majorca'
 
   return (
-      <body>
       <div class="row-container">
-          <Menu/>
-
-          <div class={"title"}>
-              <h1 className="animate__animated animate__bounceInDown"> {name} </h1>
-          </div>
-          <div class={"right"}>
-          </div>
+          <Home/>
+            <Route path="/prenotazioni"><PrenotazioniPage /></Route>
+            <Route path="/luogo"><LuogoPage /></Route>
+            <Route path="/contatti"><ContattiPage /></Route>
       </div>
-      <div className="container">
-          <div className={"row"}>
-              PRENOTA SUBITO <br/>
-              IL TUO OMBRELLONE!
-          </div>
-      </div>
-      </body>
 
   );
 }
