@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato',sans-serif;
+}
+.home,.prenotazioni,.contatti,.luogo{
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
 .App {
   text-align: center;
 }
@@ -57,95 +71,6 @@ body{
   display: flex;
   box-shadow:inset 0 -1px 5px rgba(0,0,0,0.6);
 }
-.menu{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width:100px;
-  margin-left: 4px;
-}
-.menu-icon {
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 2px;
-  margin-left: 4px;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-.menu ul{
-  width: 100px;
-  margin:0;
-  margin-left: 4px;
-  padding: 0;
-  list-style-type: none;
-}
-.menu li{
-  width:100px;
-  float:left;
-  margin: 0;
-  padding: 0px;
-  color:black;
-}
-
-.menu ul li a{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  width:100px;
-  padding: 0;
-}
-.menu a{
-  display: block;
-  padding: 5px;
-  color: #000;
-  text-decoration: none;
-}
-.menu a:hover{
-  background-color: #000033;
-  color: #FFFFFF;
-  height: 50px;
-  text-decoration: none;
-}
-.menu li li a{
-  color: floralwhite;
-  border-top: black;
-}
-.menu li ul{
-  display: none;
-  margin-left: 4px;
-}
-.menu li:hover ul{
-  display: block;
-  margin-left: 4px;
-  position: absolute;
-  z-index:1;
-  width:100px;
-  padding: 0;
-  border-top: black;
-  margin: 0 0 0 -1px;
-  border:1px solid black;
-  background: rgba(0,0,0,0.4);
-
-}
-.menu li li{
-  margin-left: 4px;
-  display: flex;
-  width: 100px;
-  vert-align: middle;
-  border:none;
-  height:50px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin: 0 auto;
-  background-color: rgba(0,0,0,0.4);
-}
 
 .title{
   display: flex;
@@ -158,7 +83,6 @@ body{
   align-items: center;
   width: 78px;
 }
-
 
 
 

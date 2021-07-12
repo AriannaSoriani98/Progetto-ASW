@@ -2,6 +2,8 @@ import Menu from "./menu";
 import PrenotazioniPage from "../pages/PrenotazioniPage";
 import ContattiPage from "../pages/ContattiPage";
 import LuogoPage from "../pages/LuogoPage";
+import {Link} from "react-router-dom";
+import React from "react";
 
 function Home() {
     const name = 'Playa Majorca'
@@ -16,10 +18,12 @@ function Home() {
             </div>
         </div>
         <div className="container">
-            <div className={"row"}>
+            <li className="nav-item">
+            <Link to="/prenotazioni" className={"row"}>
                 PRENOTA SUBITO <br/>
                 IL TUO OMBRELLONE!
-            </div>
+            </Link>
+            </li>
         </div>
         </body>
     )

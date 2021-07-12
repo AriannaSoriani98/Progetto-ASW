@@ -1,27 +1,46 @@
-import React from "react";
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import './menu.css';
+import { IconContext } from 'react-icons';
+import {MenuData} from "./MenuData";
+
 function Menu() {
+    const [sidebar, setSidebar] = useState(false);
+
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
-        <div className={"menu"}>
-            <ul className="navbar-nav">
-                <li className="nav-item">
-
-                        <div className="menu-icon">
-                            <div className="bar1"></div>
-                            <div className="bar2"></div>
-                            <div className="bar3"></div>
-                        </div>
-                        <div className={"menu-M"}> Menu</div>
-
-                    <ul className="navbar-nav">
-                        <li className="nav-item"><Link to="/prenotazioni" className="nav-link"> Prenota l'ombrellone</Link></li>
-                        <li className="nav-item"><Link to="/luogo" className="nav-link">Dove trovarci</Link></li>
-                        <li className="nav-item"><Link to="/contatti" className="nav-link">Contatti</Link></li>
+        <>
+            <IconContext.Provider value={{ color: '#fff' }}>
+                <div className='navbar'>
+                    <Link to='#' className='menu-bars'>
+                        <FaIcons.FaBars onClick={showSidebar} />
+                    </Link>
+                </div>
+                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                    <ul className='nav-menu-items' onClick={showSidebar}>
+                        <li className='navbar-toggle'>
+                            <Link to='#' className='menu-bars'>
+                                <AiIcons.AiOutlineClose />
+                            </Link>
+                        </li>
+                        {MenuData.map((item, index) => {
+                            return (
+                                <li key={index} className={item.cName}>
+                                    <Link to={item.path}>
+                                        {item.icon}
+                                        <span>{item.title}</span>
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
-                </li>
-            </ul>
-        </div>
-    )
+                </nav>
+            </IconContext.Provider>
+        </>
+    );
 }
 
 export default Menu;
