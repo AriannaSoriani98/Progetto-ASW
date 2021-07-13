@@ -1,8 +1,9 @@
-import App from "../App";
+import Home from "../components/Home";
+import {HomeData} from "../data/HomeData";
 
 function HomePage() {
     return (
-        <App/>
+        <Home slides={HomeData}/>
     )
 }
 

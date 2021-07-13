@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './menu.css';
 import { IconContext } from 'react-icons';
-import {MenuData} from "./MenuData";
+import {MenuData} from "../data/MenuData";
 
 function Menu() {
     const [sidebar, setSidebar] = useState(false);
@@ -28,12 +28,14 @@ function Menu() {
                         </li>
                         {MenuData.map((item, index) => {
                             return (
+                                <ul>
                                 <li key={index} className={item.cName}>
                                     <Link to={item.path}>
                                         {item.icon}
                                         <span>{item.title}</span>
                                     </Link>
                                 </li>
+                                </ul>
                             );
                         })}
                     </ul>

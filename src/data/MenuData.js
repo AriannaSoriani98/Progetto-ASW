@@ -1,5 +1,4 @@
 import React from 'react'
-import {FaBars} from "react-icons/fa"
 import {AiFillHome, FiShoppingBag, SiGooglemaps, TiContacts} from "react-icons/all";
 
 export const MenuData = [
