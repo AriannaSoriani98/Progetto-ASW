@@ -20,7 +20,7 @@ function App() {
           <Navbar/>
             <Route path="/" exact><HomePage/></Route>
             <Route path="/prenotazioni"><Prenotazioni /></Route>
-            <Route path="/luogo"><LuogoPage /></Route>
+            <Route path="/luogo"><LuogoPage/></Route>
             <Route path="/contatti"><ContattiPage /></Route>
       </div>
 

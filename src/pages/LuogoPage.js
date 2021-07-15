@@ -1,8 +1,8 @@
-import Luogo from "../components/Luogo";
+import Contatti from "../components/Contatti";
 
 function LuogoPage() {
     return (
-        <Luogo/>
+        <Contatti/>
     )
 }
 

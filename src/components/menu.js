@@ -28,14 +28,12 @@ function Menu() {
                         </li>
                         {MenuData.map((item, index) => {
                             return (
-                                <ul>
                                 <li key={index} className={item.cName}>
                                     <Link to={item.path}>
                                         {item.icon}
                                         <span>{item.title}</span>
                                     </Link>
                                 </li>
-                                </ul>
                             );
                         })}
                     </ul>
