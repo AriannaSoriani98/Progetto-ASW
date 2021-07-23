@@ -1,12 +1,39 @@
-.grid-container{
+.grid-container {
+    width: 90%;
+    height: 90%;
+    margin: 60px auto 40px;
+    position: center;
+}
+.grid-table {
     width: 100%;
     height: 100%;
+    border-collapse: collapse;
 }
-.row{
+tr {
     width: 100%;
-    height: 10%;
 }
-.grid-item{
-    width: 10%;
-    height:10%
+td {
+    border: 2px solid #060b26;
+    padding: 10px;
+    text-align: center;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("/src/summer.jpg")no-repeat center top;
+    position: fixed;
+    z-index: -1;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*# sourceMappingURL=prenotazioni.css.map */
