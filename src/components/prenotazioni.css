@@ -27,7 +27,7 @@ body{
     height: 100%;
     top: 0;
     left: 0;
-    background: url("/src/summer.jpg")no-repeat center top;
+    background: url("/src/sabbia.jpg")no-repeat center top;
     position: fixed;
     z-index: -1;
     -webkit-background-size: cover;
