@@ -19,27 +19,64 @@ const Prenotazioni = ({gridData, headingColumns, title, breakOn='medium'}) =>{
                     <td className="flex-column" id="3">ciao</td>
                     <td className="flex-column" id="4">ciao</td>
                     <td className="flex-column" id="5">ciao</td>
+                    <td className="middle"></td>
+                    <td className="flex-column" id="6">ciao</td>
+                    <td className="flex-column" id="7">ciao</td>
+                    <td className="flex-column" id="8">ciao</td>
+                    <td className="flex-column" id="9">ciao</td>
+                    <td className="flex-column" id="10">ciao</td>
                 </tr>
                 <tr className="flex-row" id="2">
-                    <td className="flex-column" id="1"></td>
-                    <td className="flex-column" id="2"></td>
-                    <td className="flex-column" id="3"></td>
-                    <td className="flex-column" id="4"></td>
-                    <td className="flex-column" id="5"></td>
+                    <td className="flex-column" id="1">ciao</td>
+                    <td className="flex-column" id="2">ciao</td>
+                    <td className="flex-column" id="3">ciao</td>
+                    <td className="flex-column" id="4">ciao</td>
+                    <td className="flex-column" id="5">ciao</td>
+                    <td className="middle"></td>
+                    <td className="flex-column" id="6">ciao</td>
+                    <td className="flex-column" id="7">ciao</td>
+                    <td className="flex-column" id="8">ciao</td>
+                    <td className="flex-column" id="9">ciao</td>
+                    <td className="flex-column" id="10">ciao</td>
                 </tr>
                 <tr className="flex-row" id="3">
-                    <td className="flex-column" id="1"></td>
-                    <td className="flex-column" id="2"></td>
-                    <td className="flex-column" id="3"></td>
-                    <td className="flex-column" id="4"></td>
-                    <td className="flex-column" id="5"></td>
+                    <td className="flex-column" id="1">ciao</td>
+                    <td className="flex-column" id="2">ciao</td>
+                    <td className="flex-column" id="3">ciao</td>
+                    <td className="flex-column" id="4">ciao</td>
+                    <td className="flex-column" id="5">ciao</td>
+                    <td className="middle"></td>
+                    <td className="flex-column" id="6">ciao</td>
+                    <td className="flex-column" id="7">ciao</td>
+                    <td className="flex-column" id="8">ciao</td>
+                    <td className="flex-column" id="9">ciao</td>
+                    <td className="flex-column" id="10">ciao</td>
                 </tr>
                 <tr className="flex-row" id="4">
-                    <td className="flex-column" id="1"></td>
-                    <td className="flex-column" id="2"></td>
-                    <td className="flex-column" id="3"></td>
-                    <td className="flex-column" id="4"></td>
-                    <td className="flex-column" id="5"></td>
+                    <td className="flex-column" id="1">ciao</td>
+                    <td className="flex-column" id="2">ciao</td>
+                    <td className="flex-column" id="3">ciao</td>
+                    <td className="flex-column" id="4">ciao</td>
+                    <td className="flex-column" id="5">ciao</td>
+                    <td className="middle"></td>
+                    <td className="flex-column" id="6">ciao</td>
+                    <td className="flex-column" id="7">ciao</td>
+                    <td className="flex-column" id="8">ciao</td>
+                    <td className="flex-column" id="9">ciao</td>
+                    <td className="flex-column" id="10">ciao</td>
+                </tr>
+                <tr className="flex-row" id="5">
+                    <td className="flex-column" id="1">ciao</td>
+                    <td className="flex-column" id="2">ciao</td>
+                    <td className="flex-column" id="3">ciao</td>
+                    <td className="flex-column" id="4">ciao</td>
+                    <td className="flex-column" id="5">ciao</td>
+                    <td className="middle"></td>
+                    <td className="flex-column" id="6">ciao</td>
+                    <td className="flex-column" id="7">ciao</td>
+                    <td className="flex-column" id="8">ciao</td>
+                    <td className="flex-column" id="9">ciao</td>
+                    <td className="flex-column" id="10">ciao</td>
                 </tr>
                 </tbody>
 
