@@ -7,14 +7,36 @@ import Script from '@gumgum/react-script-tag'
 import PropTypes from 'prop-types'
 
 
-const Prenotazioni = ({gridData, headingColumns, title, breakOn='medium'}) =>{
-        return(
+const Prenotazioni = () =>{
+    const createTable = () => {
+        let table = []
+        let num_col = 11
+        let num_row = 5
+        // Outer loop to create parent
+        for (let i = 0; i < num_row; i++) {
+            let children = []
+            //Inner loop to create children
+            for (let j = 0; j < num_col; j++) {
+                children.push(<td>{`Col ${j + 1}`}</td>)
+            }
+            //Create the parent and add the children
+            table.push(<tr>{children}</tr>)
+        }
+        return table
+    }
+
+    return(
         <body>
-        <div className="grid-container">
-            <table className="grid-table">
+        <table>
+            {createTable()}
+        </table>
+            {/*<table className="grid-table">
                 <tbody>
                 <tr className="flex-row" id="1">
-                    <td className="flex-column" id="1">ciao</td>
+                    <td className="flex-column" id="1">
+                        <BiBed/>
+                        <FaUmbrellaBeach/>
+                        <BiBed/></td>
                     <td className="flex-column" id="2">ciao</td>
                     <td className="flex-column" id="3">ciao</td>
                     <td className="flex-column" id="4">ciao</td>
@@ -80,49 +102,16 @@ const Prenotazioni = ({gridData, headingColumns, title, breakOn='medium'}) =>{
                 </tr>
                 </tbody>
 
-            </table>
-
-        </div>
+            </table>*/}
         </body>
 
     );
 }
 
-Prenotazioni.propTypes = {
+/*Prenotazioni.propTypes = {
     gridData: PropTypes.arrayOf(PropTypes.object).isRequired,
     headingColumns: PropTypes.arrayOf(PropTypes.string).isRequired,
     title: PropTypes.string.isRequired,
     breakOn: PropTypes.oneOf(['small','medium','large'])
-}
+}*/
 export default Prenotazioni;
-
-
-// const row = 8;
-// const column = 10;
-//
-// const _onScriptLoad=()=>{
-//
-//     for(let i=0; i<=row; i++){
-//         document.write("<div className=\"row\" >");
-//         for(let j=0; j<=column; j++){
-//             document.write("<div className=\"grid-item\" >");
-//             document.write("ciao");
-//             document.write("</div>")
-//         }
-//         document.write("</div>")
-//     }
-//
-// };
-//
-//
-// return (
-//     <body>
-//     <div className="grid-container">
-//         <Script
-//             type="text/javascript"
-//             onLoad={_onScriptLoad()}
-//         />
-//     </div>
-//     </body>
-//
-// )
