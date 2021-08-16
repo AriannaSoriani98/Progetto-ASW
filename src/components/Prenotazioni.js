@@ -34,7 +34,7 @@ const Prenotazioni = () =>{
     }
 
     return(
-        <body style={{overflowY: "auto", overflowX: "hidden"}}>
+        <body style={{overflowY: "auto"}}>
 
         <table className="Table">
             {createTable()}

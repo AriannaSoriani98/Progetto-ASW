@@ -1,5 +1,6 @@
 .Table{
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
@@ -17,18 +18,17 @@
 .row{
     padding: 10px;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     align-content: center;
     text-align: center;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 .col {
+    flex-wrap: nowrap;
     padding: 10px;
     border: 2px solid #060b26;
-}
-.center{
-
 }
 
 *, *::before, *::after {
