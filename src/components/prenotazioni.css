@@ -1,20 +1,10 @@
-.grid-container {
-    width: 90%;
-    height: 90%;
-    margin: 60px auto 40px;
-    position: center;
-}
-.grid-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-}
 .Table{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
     text-align: center;
+    position: center;
     width: 90%;
     height: 90%;
     margin: 60px auto 40px;
@@ -30,11 +20,15 @@
     flex-direction: row;
     align-content: center;
     text-align: center;
+    flex-flow: row nowrap;
     justify-content: center;
 }
 .col {
     padding: 10px;
     border: 2px solid #060b26;
+}
+.center{
+
 }
 
 *, *::before, *::after {

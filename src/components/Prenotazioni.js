@@ -5,19 +5,27 @@ import React,{Component} from 'react'
 import {render} from "@testing-library/react";
 import Script from '@gumgum/react-script-tag'
 import PropTypes from 'prop-types'
+import { Scrollbars } from 'react-custom-scrollbars';
 
 
 const Prenotazioni = () =>{
     const createTable = () => {
         let table = []
         let num_col = 11
-        let num_row = 5
+        let num_row = 8
+        let middle = num_col/2 - 0.5
         // Outer loop to create parent
         for (let i = 0; i < num_row; i++) {
             let children = []
             //Inner loop to create children
             for (let j = 0; j < num_col; j++) {
-                children.push(<td className="col">{`Col ${j + 1}`}</td>)
+                if(j==middle){
+                    children.push(<td className="col" style={{border: "none"}}>{`Col ${j + 1}`}</td>)
+                }
+                else{
+                    children.push(<td className="col">{`Col ${j + 1}`}</td>)
+                }
+
             }
             //Create the parent and add the children
             table.push(<tr className="row">{children}</tr>)
@@ -26,10 +34,12 @@ const Prenotazioni = () =>{
     }
 
     return(
-        <body>
+        <body style={{overflowY: "auto", overflowX: "hidden"}}>
+
         <table className="Table">
             {createTable()}
         </table>
+
             {/*<table className="grid-table">
                 <tbody>
                 <tr className="flex-row" id="1">
