@@ -17,17 +17,17 @@ const Prenotazioni = () =>{
             let children = []
             //Inner loop to create children
             for (let j = 0; j < num_col; j++) {
-                children.push(<td>{`Col ${j + 1}`}</td>)
+                children.push(<td className="col">{`Col ${j + 1}`}</td>)
             }
             //Create the parent and add the children
-            table.push(<tr>{children}</tr>)
+            table.push(<tr className="row">{children}</tr>)
         }
         return table
     }
 
     return(
         <body>
-        <table>
+        <table className="Table">
             {createTable()}
         </table>
             {/*<table className="grid-table">
