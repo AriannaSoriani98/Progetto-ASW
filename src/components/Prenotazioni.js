@@ -1,11 +1,15 @@
 import {FaUmbrellaBeach, IoManOutline, IoMan} from "react-icons/all";
 import "./prenotazioni.css"
+import styled from "styled-components";
+import { AppointmentPicker, DatePicker } from 'react-appointment-picker';
 import ScriptTag from 'react-script-tag'
-import React,{Component} from 'react'
+import React,{Component, useState} from 'react'
 import {render} from "@testing-library/react";
 import Script from '@gumgum/react-script-tag'
 import PropTypes from 'prop-types'
 import { Scrollbars } from 'react-custom-scrollbars';
+import BookingCalendar from 'react-booking-calendar'
+import {Calendar} from "./Calendar";
 
 
 const Prenotazioni = () =>{
@@ -39,12 +43,45 @@ const Prenotazioni = () =>{
         return table
     }
 
+    const CalendarContainer = styled.div`
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    `
+    const[showCalendar, setShowCalendar] = useState(false)
+
+    const openCalendar = ()=>{
+        setShowCalendar(prev=>!prev)
+    }
+    const Button = styled.button`
+      min-width: 100px;
+      padding: 16px 32px;
+      border-radius: 4px;
+      border: none;
+      background: #141414;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    `;
+
+
+    const onLoaded = () => {
+        <BookingCalendar />
+    }
+
     return(
         <body style={{overflowX: "auto", overflowY: "auto"}} >
 
+        {/*<BookingCalendar />*/}
+
         <table className="Table">
+            <Button onClick={openCalendar}>Ciao</Button>
+            <Calendar showCalendar={showCalendar} setShowCalendar={setShowCalendar}/>
+
             {createTable()}
         </table>
+
 
         </body>
 

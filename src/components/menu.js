@@ -7,6 +7,7 @@ import { IconContext } from 'react-icons';
 import {MenuData} from "../data/MenuData";
 
 function Menu() {
+
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
