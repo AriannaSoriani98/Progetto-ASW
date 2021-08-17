@@ -1,4 +1,4 @@
-import {FaUmbrellaBeach, BiBed} from "react-icons/all";
+import {FaUmbrellaBeach, IoManOutline, IoMan} from "react-icons/all";
 import "./prenotazioni.css"
 import ScriptTag from 'react-script-tag'
 import React,{Component} from 'react'
@@ -20,108 +20,34 @@ const Prenotazioni = () =>{
             //Inner loop to create children
             for (let j = 0; j < num_col; j++) {
                 if(j==middle){
-                    children.push(<td className="col" style={{border: "none"}}>{`Col ${j + 1}`}</td>)
+                    children.push(<td className="col" style={{border: "none", background: "none", flexWrap: "nowrap"}}></td>)
                 }
                 else{
-                    children.push(<td className="col">{`Col ${j + 1}`}</td>)
+                    children.push(<td className="col" style={{flexWrap:"nowrap"}}>
+                        {/*{`Col ${j + 1}`}*/}
+                        {<IoMan size={20}/>}
+                        {<FaUmbrellaBeach size={24}/>}
+                        {<IoMan size={20}/>}
+
+                    </td>)
                 }
 
             }
             //Create the parent and add the children
-            table.push(<tr className="row">{children}</tr>)
+            table.push(<tr className="row" style={{flexWrap:"nowrap"}}>{children}</tr>)
         }
         return table
     }
 
     return(
-        <body style={{overflowY: "auto"}}>
+        <body style={{overflowX: "auto", overflowY: "auto"}} >
 
         <table className="Table">
             {createTable()}
         </table>
 
-            {/*<table className="grid-table">
-                <tbody>
-                <tr className="flex-row" id="1">
-                    <td className="flex-column" id="1">
-                        <BiBed/>
-                        <FaUmbrellaBeach/>
-                        <BiBed/></td>
-                    <td className="flex-column" id="2">ciao</td>
-                    <td className="flex-column" id="3">ciao</td>
-                    <td className="flex-column" id="4">ciao</td>
-                    <td className="flex-column" id="5">ciao</td>
-                    <td className="middle"></td>
-                    <td className="flex-column" id="6">ciao</td>
-                    <td className="flex-column" id="7">ciao</td>
-                    <td className="flex-column" id="8">ciao</td>
-                    <td className="flex-column" id="9">ciao</td>
-                    <td className="flex-column" id="10">ciao</td>
-                </tr>
-                <tr className="flex-row" id="2">
-                    <td className="flex-column" id="1">ciao</td>
-                    <td className="flex-column" id="2">ciao</td>
-                    <td className="flex-column" id="3">ciao</td>
-                    <td className="flex-column" id="4">ciao</td>
-                    <td className="flex-column" id="5">ciao</td>
-                    <td className="middle"></td>
-                    <td className="flex-column" id="6">ciao</td>
-                    <td className="flex-column" id="7">ciao</td>
-                    <td className="flex-column" id="8">ciao</td>
-                    <td className="flex-column" id="9">ciao</td>
-                    <td className="flex-column" id="10">ciao</td>
-                </tr>
-                <tr className="flex-row" id="3">
-                    <td className="flex-column" id="1">ciao</td>
-                    <td className="flex-column" id="2">ciao</td>
-                    <td className="flex-column" id="3">ciao</td>
-                    <td className="flex-column" id="4">ciao</td>
-                    <td className="flex-column" id="5">ciao</td>
-                    <td className="middle"></td>
-                    <td className="flex-column" id="6">ciao</td>
-                    <td className="flex-column" id="7">ciao</td>
-                    <td className="flex-column" id="8">ciao</td>
-                    <td className="flex-column" id="9">ciao</td>
-                    <td className="flex-column" id="10">ciao</td>
-                </tr>
-                <tr className="flex-row" id="4">
-                    <td className="flex-column" id="1">ciao</td>
-                    <td className="flex-column" id="2">ciao</td>
-                    <td className="flex-column" id="3">ciao</td>
-                    <td className="flex-column" id="4">ciao</td>
-                    <td className="flex-column" id="5">ciao</td>
-                    <td className="middle"></td>
-                    <td className="flex-column" id="6">ciao</td>
-                    <td className="flex-column" id="7">ciao</td>
-                    <td className="flex-column" id="8">ciao</td>
-                    <td className="flex-column" id="9">ciao</td>
-                    <td className="flex-column" id="10">ciao</td>
-                </tr>
-                <tr className="flex-row" id="5">
-                    <td className="flex-column" id="1">ciao</td>
-                    <td className="flex-column" id="2">ciao</td>
-                    <td className="flex-column" id="3">ciao</td>
-                    <td className="flex-column" id="4">ciao</td>
-                    <td className="flex-column" id="5">ciao</td>
-                    <td className="middle"></td>
-                    <td className="flex-column" id="6">ciao</td>
-                    <td className="flex-column" id="7">ciao</td>
-                    <td className="flex-column" id="8">ciao</td>
-                    <td className="flex-column" id="9">ciao</td>
-                    <td className="flex-column" id="10">ciao</td>
-                </tr>
-                </tbody>
-
-            </table>*/}
         </body>
 
     );
 }
-
-/*Prenotazioni.propTypes = {
-    gridData: PropTypes.arrayOf(PropTypes.object).isRequired,
-    headingColumns: PropTypes.arrayOf(PropTypes.string).isRequired,
-    title: PropTypes.string.isRequired,
-    breakOn: PropTypes.oneOf(['small','medium','large'])
-}*/
 export default Prenotazioni;
