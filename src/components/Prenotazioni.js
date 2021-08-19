@@ -29,7 +29,6 @@ const Button = styled.button`
   color: #fff;
   cursor: pointer;
   margin: auto;
-  
 `
 
 const Prenotazioni = () =>{
