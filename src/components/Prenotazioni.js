@@ -1,5 +1,5 @@
 import {FaUmbrellaBeach, IoManOutline, IoMan} from "react-icons/all";
-import "./prenotazioni.css"
+import "./table.css"
 import styled from "styled-components";
 import { AppointmentPicker, DatePicker } from 'react-appointment-picker';
 import ScriptTag from 'react-script-tag'
@@ -10,9 +10,35 @@ import PropTypes from 'prop-types'
 import { Scrollbars } from 'react-custom-scrollbars';
 import BookingCalendar from 'react-booking-calendar'
 import {Calendar} from "./Calendar";
+import {GlobalStyle} from "../pages/globalStyles";
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
+const Button = styled.button`
+  width: 180px;
+  padding: 16px 20px;
+  border-radius: 4px;
+  border: none;
+  background: #141414;
+  color: #fff;
+  cursor: pointer;
+  margin: auto;
+  
+`
 
 const Prenotazioni = () =>{
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
+
     const createTable = () => {
         let table = []
         let num_col = 11
@@ -43,47 +69,25 @@ const Prenotazioni = () =>{
         return table
     }
 
-    const CalendarContainer = styled.div`
-        display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    `
-    const[showCalendar, setShowCalendar] = useState(false)
-
-    const openCalendar = ()=>{
-        setShowCalendar(prev=>!prev)
-    }
-    const Button = styled.button`
-      min-width: 100px;
-      padding: 16px 32px;
-      border-radius: 4px;
-      border: none;
-      background: #141414;
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
-    `;
-
-
-    const onLoaded = () => {
-        <BookingCalendar />
-    }
 
     return(
-        <body style={{overflowX: "auto", overflowY: "auto"}} >
+        <body style={{overflowX: "auto", overflowY: "auto"}}>
 
         {/*<BookingCalendar />*/}
+        <div className={"apice"}></div>
+            <Button onClick={openModal}>Scegli il periodo</Button>
 
-        <table className="Table">
-            <Button onClick={openCalendar}>Ciao</Button>
-            <Calendar showCalendar={showCalendar} setShowCalendar={setShowCalendar}/>
+            <Calendar showModal={showModal} setShowModal={setShowModal} />
+            <GlobalStyle />
 
-            {createTable()}
-        </table>
+            <table className="Table">
 
+
+                {createTable()}
+            </table>
 
         </body>
+
 
     );
 }
