@@ -17,8 +17,8 @@ app.use(express.json());
 
 
 //DA DECOMMENTARE!!!**********
-/*var routes = require('./src/routes/moviesRoutes');
-routes(app);*/
+var routes = require('./routes/bookingRoutes');
+routes(app);
 
 app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
