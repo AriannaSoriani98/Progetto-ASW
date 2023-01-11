@@ -10,7 +10,7 @@ export const MenuData = [
     },
     {
         title:'Prenotazioni',
-        path:'/prenotazioni',
+        path:'/booking',
         icon: <FiShoppingBag />,
         cName: 'nav-text'
     },

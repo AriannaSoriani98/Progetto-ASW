@@ -7,13 +7,13 @@ const label='Prenota il tuo ombrellone';
 export const HomeData = [
     {
         title:name,
-        path:'/prenotazioni',
+        path:'/booking',
         image: ImageOne,
         label:label
     },
     {
         title:name,
-        path:'/prenotazioni',
+        path:'/booking',
         image: ImageTwo,
         label:label
     }

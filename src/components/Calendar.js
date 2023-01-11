@@ -2,11 +2,7 @@ import React, { useRef, useEffect, useCallback, useState} from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import { Datepicker, Input, Page, setOptions } from '@mobiscroll/react'
-import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 import { DateRangePicker, DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
@@ -79,6 +75,24 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const Calendar = ({ showModal, setShowModal }) => {
+
+    // caricamento disponibilità
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadedReservation, setLoadedReservation] = useState([]);
+
+    useEffect(()=>{
+        axios.get('http://localhost:3000/api/reservations')
+            .then(response =>{
+                let reservations = []
+                reservations = response.data
+                /*reservations.forEach(function(umbrella) {
+                    if(umbrella.poster!=null) umbrella.poster = umbrella.poster.replace("http://ia.media-imdb.com/", "https://m.media-amazon.com/")
+                });*/
+                setIsLoading(false);
+                setLoadedReservation(reservations);
+            })
+    },[]);
+
     const modalRef = useRef();
 
     const animation = useSpring({
@@ -113,26 +127,22 @@ export const Calendar = ({ showModal, setShowModal }) => {
         [keyPress]
     );
 
-    const props = { placeholder: 'Please Select...' };
-    const [openPicker, setOpenPicker] = React.useState(false);
-    const show = () => {
-        setOpenPicker(true);
-    };
-    const onClose = () => {
-        setOpenPicker(false);
-    };
 
-
-    ////
     const [state, setState] = useState([
         {
             startDate: new Date(),
-            endDate: null,
+            endDate: new Date(),
             key: 'selection'
         }
     ]);
 
-    const calculate = () =>{
+    function calculate(event){
+        event.preventDefault();
+        const range = {
+            /*initial:initial,
+            final:final,*/
+        }
+
 
     };
 

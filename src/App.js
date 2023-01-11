@@ -19,7 +19,7 @@ function App() {
       <div class="row-container">
           <Navbar/>
             <Route path="/" exact><HomePage/></Route>
-            <Route path="/prenotazioni"><PrenotazioniPage/></Route>
+            <Route path="/booking"><PrenotazioniPage/></Route>
             {/*<Route path="/calendario/prenotazioni"><PrenotazioniPage/></Route>*/}
             <Route path="/luogo"><LuogoPage/></Route>
             <Route path="/contatti"><ContattiPage /></Route>
