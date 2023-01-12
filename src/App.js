@@ -1,11 +1,11 @@
 import './App.css';
 import 'animate.css';
 import {Route} from 'react-router-dom'
-import PrenotazioniPage from "./pages/PrenotazioniPage";
-import ContattiPage from "./pages/ContattiPage";
-import LuogoPage from "./pages/LuogoPage";
+import CardsPage from "./pages/CardsPage";
+import PlacePage from "./pages/PlacePage";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
+import ReservationPage from "./pages/ReservationPage";
 
 //import { Helmet } from 'react-helmet';
 //const TITLE = 'Benvenuto'
@@ -19,10 +19,9 @@ function App() {
       <div class="row-container">
           <Navbar/>
             <Route path="/" exact><HomePage/></Route>
-            <Route path="/booking"><PrenotazioniPage/></Route>
-            {/*<Route path="/calendario/prenotazioni"><PrenotazioniPage/></Route>*/}
-            <Route path="/luogo"><LuogoPage/></Route>
-            <Route path="/contatti"><ContattiPage /></Route>
+            <Route path="/booking"><ReservationPage/></Route>
+            <Route path="/schede"><CardsPage /></Route>
+            <Route path="/luogo"><PlacePage/></Route>
       </div>
 
   );

@@ -15,8 +15,8 @@ export const MenuData = [
         cName: 'nav-text'
     },
     {
-        title:'Contatti',
-        path:'/contatti',
+        title:'Schede Tecniche',
+        path:'/schede',
         icon: <TiContacts />,
         cName: 'nav-text'
     },

@@ -16,6 +16,7 @@ const NavMenu=styled.div`
   display: flex;
   align-items: center;
 `;
+
 const Navbar= () => {
     return (
         <Nav>

@@ -31,7 +31,7 @@ const Button = styled.button`
   margin: auto;
 `
 
-const Prenotazioni = () =>{
+const Reservation = () =>{
     const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
@@ -80,8 +80,6 @@ const Prenotazioni = () =>{
             <GlobalStyle />
 
             <table className="Table">
-
-
                 {createTable()}
             </table>
 
@@ -90,4 +88,4 @@ const Prenotazioni = () =>{
 
     );
 }
-export default Prenotazioni;
+export default Reservation;

@@ -1,9 +1,9 @@
 import Contatti from "../components/Contatti";
 
-function LuogoPage() {
+function PlacePage() {
     return (
         <Contatti/>
     )
 }
 
-export default LuogoPage;
+export default PlacePage;
