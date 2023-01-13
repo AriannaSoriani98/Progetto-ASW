@@ -3,11 +3,16 @@ import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import axios from "axios";
+import { format } from "date-fns";
 
 import { DateRangePicker, DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import useFetch from "./useFetch.js";
+import SearchItem from "./SearchItem";
+
+
 
 const Background = styled.div`
   width: 100%;
@@ -80,6 +85,7 @@ export const Calendar = ({ showModal, setShowModal }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [loadedReservation, setLoadedReservation] = useState([]);
 
+
     useEffect(()=>{
         axios.get('http://localhost:3000/api/reservations')
             .then(response =>{
@@ -128,13 +134,22 @@ export const Calendar = ({ showModal, setShowModal }) => {
     );
 
 
-    const [state, setState] = useState([
+    const [dates, setDates] = useState([
         {
             startDate: new Date(),
             endDate: new Date(),
             key: 'selection'
         }
     ]);
+
+    const [openDate, setOpenDate] = useState(false);
+    const { data, loading, error, reFetch } = useFetch(
+        `/booking?from=${dates[0].startDate}&to=${dates[0].endDate}`
+    );
+
+    const handleClick = () => {
+        reFetch();
+    };
 
     function calculate(event){
         event.preventDefault();
@@ -154,24 +169,40 @@ export const Calendar = ({ showModal, setShowModal }) => {
                     <animated.div style={animation} className={"animation"}>
                         <ModalWrapper showModal={showModal}>
                             <LeftBox>
-                            <DateRange
+                                {/*{openDate && (
+                                    <DateRange
+                                        style={{position:"initial"}}
+                                        editableDateInputs={true}
+                                        onChange={(item) => setDates([item.selection])}
+                                        minDate={new Date()}
+                                        ranges={dates}
+                                    />
+                                )}*/}
+                                <DateRange
                                 style={{position:"initial"}}
                                 editableDateInputs={true}
-                                onChange={item => setState([item.selection])}
+                                onChange={item => setDates([item.selection])}
                                 moveRangeOnFirstSelection={false}
-                                ranges={state}
+                                ranges={dates}
                                 minDate={addDays(new Date(), 0)}
                                 // maxDate={addDays(new Date(), 30)}
                             />
+
                             </LeftBox>
                             <ModalContent>
                                 <h1>Are you ready?</h1>
-                                <button onClick={calculate}>Search</button>
+                                <button onClick={handleClick}>Search</button>
                             </ModalContent>
+                                    <>
+                                        {data.map((item) => (
+                                            <SearchItem item={item} key={item._id} />
+                                        ))}
+                                    </>
                             <CloseModalButton
                                 aria-label='Close modal'
                                 onClick={() => setShowModal(prev => !prev)}
                             />
+
                         </ModalWrapper>
                     </animated.div>
                 </Background>
