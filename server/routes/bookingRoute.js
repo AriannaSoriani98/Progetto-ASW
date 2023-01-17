@@ -8,8 +8,9 @@ module.exports = function(app) {
 }*/
 const express = require("express");
 const router = express.Router();
+var mongoose = require('mongoose');
 
-const Booking = require("../models/bookingModel")
+const Booking = require("../models/bookingModel.js")(mongoose);
 
 router.get("/getAllBooking", async (req,res)=>{
     try{
