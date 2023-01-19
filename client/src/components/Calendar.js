@@ -3,14 +3,19 @@ import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import axios from "axios";
-import { format } from "date-fns";
 
-import { DateRangePicker, DateRange } from 'react-date-range';
+import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import useFetch from "./useFetch.js";
 import SearchItem from "./SearchItem";
+import moment from 'moment';
+import {DatePicker} from "antd";
+import { format } from 'date-fns';
+import {Link} from "react-router-dom";
+const {RangePicker} = DatePicker
+
 
 
 
@@ -80,7 +85,6 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const Calendar = ({ showModal, setShowModal }) => {
-
     // caricamento disponibilità
     const [isLoading, setIsLoading] = useState(true);
     const [loadedReservation, setLoadedReservation] = useState([]);
@@ -134,42 +138,46 @@ export const Calendar = ({ showModal, setShowModal }) => {
     );
 
 
-    const [dates, setDates] = useState([
+    const [date, setDate] = useState([
         {
             startDate: new Date(),
             endDate: new Date(),
-            key: 'selection'
+            key: 'selection',
         }
-    ]);
-
-    const [openDate, setOpenDate] = useState(false);
-    const { data, loading, error, reFetch } = useFetch(
-        `/booking?from=${dates[0].startDate}&to=${dates[0].endDate}`
-    );
-
-    const handleClick = () => {
-        reFetch();
-    };
-
-    function calculate(event){
-        event.preventDefault();
-        const range = {
-            /*initial:initial,
-            final:final,*/
-        }
+    ])
+    const[fromDate, setfromDate] = useState()
+    const[toDate, settoDate] = useState()
 
 
-    };
+    /* const [openDate, setOpenDate] = useState(false);
+     const { data, loading, error, reFetch } = useFetch(
+         `/booking?from=${dates[0].startDate}&to=${dates[0].endDate}`
+     );
+
+     const handleClick = () => {
+         reFetch();
+     };*/
 
 
-    return (
-        <>
-            {showModal ? (
-                <Background onClick={closeModal} ref={modalRef} className={"background"}>
-                    <animated.div style={animation} className={"animation"}>
-                        <ModalWrapper showModal={showModal}>
-                            <LeftBox>
-                                {/*{openDate && (
+    function handleSelect(){
+        console.log(moment(date[0].startDate).format("DD-MM-YYYY"));
+        console.log(moment(date[0].endDate).format("DD-MM-YYYY"));
+        // setfromDate(moment(date[0].startDate).format("DD-MM-YYYY"));
+        // settoDate(moment(date[0].endDate).format("DD-MM-YYYY"));
+        console.log(fromDate);
+        console.log(toDate);
+    }
+
+
+        return (
+            <>
+
+                {showModal ? (
+                    <Background onClick={closeModal} ref={modalRef} className={"background"}>
+                        <animated.div style={animation} className={"animation"}>
+                            <ModalWrapper showModal={showModal}>
+                                <LeftBox>
+                                    {/*{openDate && (
                                     <DateRange
                                         style={{position:"initial"}}
                                         editableDateInputs={true}
@@ -178,35 +186,61 @@ export const Calendar = ({ showModal, setShowModal }) => {
                                         ranges={dates}
                                     />
                                 )}*/}
-                                <DateRange
-                                style={{position:"initial"}}
-                                editableDateInputs={true}
-                                onChange={item => setDates([item.selection])}
-                                moveRangeOnFirstSelection={false}
-                                ranges={dates}
-                                minDate={addDays(new Date(), 0)}
-                                // maxDate={addDays(new Date(), 30)}
-                            />
+                                    <DateRange
+                                        style={{position:"initial"}}
+                                        format="DD-MM-YYYY"
+                                        minDate={new Date()}
+                                        editableDateInputs={true}
+                                        moveRangeOnFirstSelection={false}
+                                        ranges={date}
+                                        onChange={item => {
+                                            setDate([item.selection]);
+                                            console.log(item);
 
-                            </LeftBox>
-                            <ModalContent>
-                                <h1>Are you ready?</h1>
-                                <button onClick={handleClick}>Search</button>
-                            </ModalContent>
-                                    <>
+                                        } }
+                                        startDate={date.startDate}
+                                        endDate = {date.endDate}
+
+                                        />
+                                    {/*<DateRange
+                                        style={{position:"initial"}}
+                                        format="DD-MM-YYYY"
+                                        minDate={new Date()}
+                                        editableDateInputs={true}
+                                        moveRangeOnFirstSelection={false}
+                                        ranges={dates}
+                                        onChange={item => {
+                                            setDates([item.selection]);
+                                            console.log(item);
+
+                                        } }
+                                    />*/}
+
+
+                                    {/*<RangePicker format="DD-MM-YYYY" onChange={filterByDate}/>*/}
+
+
+                                </LeftBox>
+                                <ModalContent>
+                                    <h1>Are you ready?</h1>
+                                    <Link to={"/booking/" + fromDate + "/" + toDate}>
+                                        <button onClick={handleSelect}>Search</button>
+                                    </Link>
+                                </ModalContent>
+                                {/*<>
                                         {data.map((item) => (
                                             <SearchItem item={item} key={item._id} />
                                         ))}
-                                    </>
-                            <CloseModalButton
-                                aria-label='Close modal'
-                                onClick={() => setShowModal(prev => !prev)}
-                            />
+                                    </>*/}
+                                <CloseModalButton
+                                    aria-label='Close modal'
+                                    onClick={() => setShowModal(prev => !prev)}
+                                />
 
-                        </ModalWrapper>
-                    </animated.div>
-                </Background>
-            ) : null}
-        </>
-    );
+                            </ModalWrapper>
+                        </animated.div>
+                    </Background>
+                ) : null}
+            </>
+        );
 };

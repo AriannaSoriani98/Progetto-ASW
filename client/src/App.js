@@ -6,7 +6,7 @@ import PlacePage from "./pages/PlacePage";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ReservationPage from "./pages/ReservationPage";
-
+import AvailabilityPage from "./pages/AvailabilityPage";
 //import { Helmet } from 'react-helmet';
 //const TITLE = 'Benvenuto'
 //<Helmet>
@@ -20,6 +20,7 @@ function App() {
           <Navbar/>
             <Route path="/" exact><HomePage/></Route>
             <Route path="/booking"><ReservationPage/></Route>
+            <Route path="/booking/:fromDate/:toDate"><AvailabilityPage/></Route>
             <Route path="/schede"><CardsPage /></Route>
             <Route path="/luogo"><PlacePage/></Route>
       </div>
