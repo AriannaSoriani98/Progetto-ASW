@@ -1,4 +1,4 @@
-function Availability() {
+function Booking() {
     return (
         <div>
             $END$
@@ -6,4 +6,4 @@ function Availability() {
     )
 }
 
-export default Availability;
+export default Booking;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { AppointmentPicker, DatePicker } from 'react-appointment-picker';
 import ScriptTag from 'react-script-tag'
-import React,{Component, useState} from 'react'
+import React, {Component, useEffect, useState} from 'react'
 import {render} from "@testing-library/react";
 import Script from '@gumgum/react-script-tag'
 import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ import BookingCalendar from 'react-booking-calendar'
 import {Calendar} from "./Calendar";
 import {Table} from "./Table";
 import {GlobalStyle} from "../pages/globalStyles";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -33,10 +34,34 @@ const Button = styled.button`
 const Reservation = () =>{
     const [showModal, setShowModal] = useState(false);
 
+    const [requestedDates, setRequestedDates] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadedBookings, setLoadedBookings] = useState([]);
+
+    useEffect(()=>{
+        axios.get('http://localhost:3000/api/bookings')
+            .then(response =>{
+                let bookings= [];
+                bookings = response.data
+                /*reservations.forEach(function(umbrella) {
+                    if(umbrella.poster!=null) umbrella.poster = umbrella.poster.replace("http://ia.media-imdb.com/", "https://m.media-amazon.com/")
+                });*/
+                setIsLoading(false);
+                setLoadedBookings(bookings);
+            })
+    },[]);
+
+
+
     const openModal = () => {
         setShowModal(prev => !prev);
     };
 
+
+    console.log(requestedDates);
+
+
+    console.log(loadedBookings);
 
 
 
@@ -46,11 +71,11 @@ const Reservation = () =>{
         {/*<BookingCalendar />*/}
         <div className={"apice"}></div>
             <Button onClick={openModal}>Scegli il periodo</Button>
+            <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates}/>
 
-            <Calendar showModal={showModal} setShowModal={setShowModal} />
             <GlobalStyle />
 
-            <Table/>
+            <Table bookings={loadedBookings} requestedDates={requestedDates}/>
 
         </body>
 

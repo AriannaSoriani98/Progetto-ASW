@@ -12,9 +12,11 @@ import useFetch from "./useFetch.js";
 import SearchItem from "./SearchItem";
 import moment from 'moment';
 import {DatePicker} from "antd";
+import Availability from "./Availability";
 import { format } from 'date-fns';
 import {Link} from "react-router-dom";
-const {RangePicker} = DatePicker
+import {Route} from 'react-router-dom'
+const {RangePicker} = DatePicker;
 
 
 
@@ -84,24 +86,13 @@ const CloseModalButton = styled(MdClose)`
   
 `;
 
-export const Calendar = ({ showModal, setShowModal }) => {
+export const Calendar = ({ showModal, setShowModal, requestedDates, setRequestedDates }) => {
     // caricamento disponibilità
-    const [isLoading, setIsLoading] = useState(true);
-    const [loadedReservation, setLoadedReservation] = useState([]);
+    var fromDate = new Date();
+    var toDate = new Date();
+    const [isClick,setIsClick] = useState(false);
+    const [close, setClose] = useState(false);
 
-
-    useEffect(()=>{
-        axios.get('http://localhost:3000/api/reservations')
-            .then(response =>{
-                let reservations = []
-                reservations = response.data
-                /*reservations.forEach(function(umbrella) {
-                    if(umbrella.poster!=null) umbrella.poster = umbrella.poster.replace("http://ia.media-imdb.com/", "https://m.media-amazon.com/")
-                });*/
-                setIsLoading(false);
-                setLoadedReservation(reservations);
-            })
-    },[]);
 
     const modalRef = useRef();
 
@@ -145,8 +136,8 @@ export const Calendar = ({ showModal, setShowModal }) => {
             key: 'selection',
         }
     ])
-    const[fromDate, setfromDate] = useState()
-    const[toDate, settoDate] = useState()
+
+
 
 
     /* const [openDate, setOpenDate] = useState(false);
@@ -160,12 +151,17 @@ export const Calendar = ({ showModal, setShowModal }) => {
 
 
     function handleSelect(){
-        console.log(moment(date[0].startDate).format("DD-MM-YYYY"));
-        console.log(moment(date[0].endDate).format("DD-MM-YYYY"));
-        // setfromDate(moment(date[0].startDate).format("DD-MM-YYYY"));
-        // settoDate(moment(date[0].endDate).format("DD-MM-YYYY"));
-        console.log(fromDate);
-        console.log(toDate);
+        fromDate = moment(date[0].startDate).format("YYYY-MM-DD");
+        toDate = moment(date[0].endDate).format("YYYY-MM-DD");
+        setIsClick(prev => !prev);
+        console.log(fromDate,toDate);
+        let dates = [];
+        dates.push(fromDate);
+        dates.push(toDate);
+        setRequestedDates(dates);
+        setShowModal(prev => !prev);
+        setClose(prev => !prev);
+      //  window.location.href = "/booking/" + fromDate + "/" + toDate;
     }
 
 
@@ -223,9 +219,14 @@ export const Calendar = ({ showModal, setShowModal }) => {
                                 </LeftBox>
                                 <ModalContent>
                                     <h1>Are you ready?</h1>
-                                    <Link to={"/booking/" + fromDate + "/" + toDate}>
+                                    {/*<Link to={"/booking/" + fromDate + "/" + toDate}>
                                         <button onClick={handleSelect}>Search</button>
-                                    </Link>
+                                    </Link>*/}
+                                    <button onClick={handleSelect}>
+                                        Search
+                                    </button>
+
+
                                 </ModalContent>
                                 {/*<>
                                         {data.map((item) => (
