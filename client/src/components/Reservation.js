@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import { Scrollbars } from 'react-custom-scrollbars';
 import BookingCalendar from 'react-booking-calendar'
 import {Calendar} from "./Calendar";
+import {Booking} from "./Booking";
 import {Table} from "./Table";
 import {GlobalStyle} from "../pages/globalStyles";
 import axios from "axios";
@@ -33,10 +34,14 @@ const Button = styled.button`
 
 const Reservation = () =>{
     const [showModal, setShowModal] = useState(false);
+    const [showBooking, setShowBooking] = useState(false);
 
     const [requestedDates, setRequestedDates] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [loadedBookings, setLoadedBookings] = useState([]);
+
+    const [requestedPlace, setRequestedPlace] = useState([]);
+
 
     useEffect(()=>{
         axios.get('http://localhost:3000/api/bookings')
@@ -64,7 +69,6 @@ const Reservation = () =>{
     console.log(loadedBookings);
 
 
-
     return(
         <body style={{overflowX: "auto", overflowY: "auto"}}>
 
@@ -75,11 +79,14 @@ const Reservation = () =>{
 
             <GlobalStyle />
 
-            <Table bookings={loadedBookings} requestedDates={requestedDates}/>
+            <Table bookings={loadedBookings} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
+                   showBooking={showBooking} setShowBooking={setShowBooking}/>
+
+            <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} />
 
         </body>
 
 
     );
-}
+};
 export default Reservation;

@@ -8,8 +8,7 @@ import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import useFetch from "./useFetch.js";
-import SearchItem from "./SearchItem";
+
 import moment from 'moment';
 import {DatePicker} from "antd";
 import Availability from "./Availability";
@@ -53,7 +52,7 @@ const LeftBox = styled.div`
   display: flex;
   border-right: 0.2px solid #141414;
   justify-content: flex-start;
-`
+`;
 
 const ModalContent = styled.div`
   display: flex;
