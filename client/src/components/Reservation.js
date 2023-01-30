@@ -56,6 +56,19 @@ const Reservation = () =>{
             })
     },[]);
 
+    function OnAdded(booking) {
+        setIsLoading(true)
+        axios.post("http://localhost:3000/api/bookings", booking)
+            .then( response => {
+                //console.log(response.data);
+                const newList = loadedBookings;
+                newList.push(response.data)
+                setLoadedBookings(newList);
+                setIsLoading(false);
+
+            })
+    }
+
 
 
     const openModal = () => {
@@ -82,7 +95,7 @@ const Reservation = () =>{
             <Table bookings={loadedBookings} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
                    showBooking={showBooking} setShowBooking={setShowBooking}/>
 
-            <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} />
+            <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAdded={OnAdded}/>
 
         </body>
 

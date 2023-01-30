@@ -25,6 +25,7 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
         let middle = num_col/2 + 0.5
         let bookings_length = bookings.length;
         let no_available = [];
+
         console.log(bookings_length);
 
         for(let z=0; z<bookings_length;z++){
@@ -33,27 +34,31 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
                 ((requestedDates[0]<=bookings[z].dataInizio) && (requestedDates[1] >=bookings[z].dataFine))) {
                 no_available.push(bookings[z]);
             }
-
-
-
         }
         console.log(bookings);
         console.log(no_available);
         let no_available_length = no_available.length;
 
         //RIGHE
-        for (let i = 1; i <= num_row; i++) {
+        for (let i = 1; i < num_row; i++) {
             let children = [];
 
             //COLONNE
             for (let j = 1; j <= num_col; j++) {
                 let prenotato = false;
+                let ombrellone= 0;
                 if(j==middle){
                     children.push(<td className="col" style={{border: "none", background: "none", flexWrap: "nowrap"}}></td>)
                 }
-                else{
+                else {
+                    if (j > middle) {
+                        ombrellone = j - 1;
+                    } else {
+                        ombrellone = j;
+                    }
+
                     for(let z=0;z<no_available_length;z++){
-                        if((i==no_available[z].fila) && (j==no_available[z].postazione)){
+                        if((i==no_available[z].fila) && (ombrellone==no_available[z].postazione)){
                             prenotato = true;
                         }
                     }
@@ -69,17 +74,16 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
                     }
                     else{
                         if(requestedDates.length!=0){
-                            children.push(
-                                <button className="col" style={{flexWrap:"nowrap"}} onClick={()=>{openBooking(i,j);}}>
-                                {/*{`Col ${j + 1}`}*/}
-                                {<IoMan size={20}/>}
-                                {<FaUmbrellaBeach size={24}/>}
-                                {<IoMan size={20}/>}
-                            </button>)
-
+                                children.push(
+                                    <button className="col" style={{flexWrap:"nowrap"}} onClick={()=>{openBooking(i,ombrellone);}}>
+                                        {/*{`Col ${j + 1}`}*/}
+                                        {<IoMan size={20}/>}
+                                        {<FaUmbrellaBeach size={24}/>}
+                                        {<IoMan size={20}/>}
+                                    </button>)
                         }
                         else{
-                            children.push(<td className="col" style={{flexWrap:"nowrap"}} onClick={openBooking}>
+                            children.push(<td className="col" style={{flexWrap:"nowrap"}}>
                                 {<IoMan size={20}/>}
                                 {<FaUmbrellaBeach size={24}/>}
                                 {<IoMan size={20}/>}

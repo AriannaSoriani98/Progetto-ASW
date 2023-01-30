@@ -75,7 +75,7 @@ const P = styled.div`
 `;
 
 
-export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace})=> {
+export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAdded})=> {
 
     console.log(requestedDates);
     console.log(requestedPlace);
@@ -114,6 +114,17 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
         [keyPress]
     );
 
+    function SubmitHandler(event){
+        event.preventDefault();
+        const formData = {
+            dataInizio: moment(requestedDates[0]).format("DD-MM-YYYY"),
+            dataFine: moment(requestedDates[1]).format("DD-MM-YYYY"),
+            fila: requestedPlace[0],
+            postazione: requestedPlace[1],
+        }
+        OnAdded(formData);
+    }
+
     return(
       <>
           {showBooking ? (
@@ -127,21 +138,21 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
                                   <b>
                                       {" "}
                                       <P>From Date:</P> {moment(requestedDates[0]).format("DD-MM-YYYY")}
-                                      <P>To Date: {moment(requestedDates[1]).format("DD-MM-YYYY")} </P>
-                                      <P>Fila: {requestedPlace[0]}</P>
-                                      <P>Ombrellone: {requestedPlace[1]}</P>
+                                      <P>To Date: </P> {moment(requestedDates[1]).format("DD-MM-YYYY")}
+                                      <P>Fila: </P>{requestedPlace[0]}
+                                      <P>Ombrellone:</P> {requestedPlace[1]}
                                   </b>
 
 
                               </div>
                           </LeftBox>
                           <ModalContent>
-                              <h1>Are you ready?</h1>
+
                               {/*<Link to={"/booking/" + fromDate + "/" + toDate}>
                                         <button onClick={handleSelect}>Search</button>
                                     </Link>*/}
-                              <button>
-                                  Search
+                              <button onClick={SubmitHandler}>
+                                  Conferma
                               </button>
                           </ModalContent>
                           <CloseBookingButton
