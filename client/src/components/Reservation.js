@@ -12,6 +12,7 @@ import {Booking} from "./Booking";
 import {Table} from "./Table";
 import {GlobalStyle} from "../pages/globalStyles";
 import axios from "axios";
+import {Popup} from "./Popup";
 
 const Container = styled.div`
   display: flex;
@@ -33,6 +34,8 @@ const Button = styled.button`
 `
 
 const Reservation = () =>{
+    const [success, setSuccess] = useState(false);
+
     const [showModal, setShowModal] = useState(false);
     const [showBooking, setShowBooking] = useState(false);
 
@@ -95,7 +98,8 @@ const Reservation = () =>{
             <Table bookings={loadedBookings} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
                    showBooking={showBooking} setShowBooking={setShowBooking}/>
 
-            <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAdded={OnAdded}/>
+            <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAdded={OnAdded} success={success} setSuccess={setSuccess}/>
+            {success ? <Popup text="Prenotazione avvenuta con successo!" closePopup={() => setSuccess(false)} /> : null}
 
         </body>
 

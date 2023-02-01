@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import styled from "styled-components";
 import {MdClose} from "react-icons/md";
 import moment from 'moment';
+import { Popup } from "./Popup";
 
 const Background = styled.div`
   width: 100%;
@@ -75,10 +76,31 @@ const P = styled.div`
 `;
 
 
-export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAdded})=> {
+
+
+export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAdded, success, setSuccess})=> {
 
     console.log(requestedDates);
     console.log(requestedPlace);
+
+
+    const [fromDate,setFromDate] = useState('');
+    const [toDate,setToDate] = useState('');
+    const [fila,setFila] = useState('');
+    const [postazione,setPostazione] = useState('');
+
+    function FromDateHandler(event){
+        setFromDate(event.target.value)
+    }
+    function ToDateHandler(event){
+        setToDate(event.target.value)
+    }
+    function FilaHandler(event){
+        setFila(event.target.value)
+    }
+    function PostazioneHandler(event){
+        setPostazione(event.target.value)
+    }
 
     const bookingRef = useRef();
 
@@ -117,30 +139,38 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
     function SubmitHandler(event){
         event.preventDefault();
         const formData = {
-            dataInizio: moment(requestedDates[0]).format("DD-MM-YYYY"),
-            dataFine: moment(requestedDates[1]).format("DD-MM-YYYY"),
+            dataInizio: moment(requestedDates[0]).format("YYYY-MM-DD"),
+            dataFine: moment(requestedDates[1]).format("YYYY-MM-DD"),
             fila: requestedPlace[0],
             postazione: requestedPlace[1],
         }
+        console.log(formData);
         OnAdded(formData);
+        setShowBooking(prev => !prev);
+        setSuccess(true);
     }
 
     return(
       <>
           {showBooking ? (
+
               <Background onClick={closeBooking} ref={bookingRef} className={"background"}>
                   <animated.div style={animation} className={"animation"}>
                       <ModalWrapper showBooking={showBooking}>
+
                           <LeftBox>
                               <div className="col-md-7">
                                   <h1>Booking details</h1>
                                   <hr/>
                                   <b>
-                                      {" "}
-                                      <P>From Date:</P> {moment(requestedDates[0]).format("DD-MM-YYYY")}
-                                      <P>To Date: </P> {moment(requestedDates[1]).format("DD-MM-YYYY")}
-                                      <P>Fila: </P>{requestedPlace[0]}
-                                      <P>Ombrellone:</P> {requestedPlace[1]}
+
+                                          {" "}
+                                          <P>From Date:</P> <p onChange={FromDateHandler}>{moment(requestedDates[0]).format("DD-MM-YYYY")} </p>
+                                          <P>To Date: </P> <p onChange={ToDateHandler}> {moment(requestedDates[1]).format("DD-MM-YYYY")}</p>
+                                          <P>Fila: </P> <p onChange={FilaHandler}> {requestedPlace[0]} </p>
+                                          <P>Ombrellone:</P> <p onChange={PostazioneHandler}> {requestedPlace[1]} </p>
+
+
                                   </b>
 
 
@@ -151,17 +181,19 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
                               {/*<Link to={"/booking/" + fromDate + "/" + toDate}>
                                         <button onClick={handleSelect}>Search</button>
                                     </Link>*/}
-                              <button onClick={SubmitHandler}>
+                              <button type="submit" className="btn btn-primary" onClick={SubmitHandler}>
                                   Conferma
                               </button>
+
                           </ModalContent>
                           <CloseBookingButton
                               aria-label='Close booking'
                               onClick={() => setShowBooking(prev => !prev)}
                           />
+
                       </ModalWrapper>
                   </animated.div>
-              </Background>
+                  </Background>
           ) : null}
       </>
   );
