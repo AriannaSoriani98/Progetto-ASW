@@ -78,7 +78,7 @@ const P = styled.div`
 
 
 
-export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAdded, success, setSuccess})=> {
+export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros, success, setSuccess})=> {
 
     console.log(requestedDates);
     console.log(requestedPlace);
@@ -145,10 +145,11 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
             postazione: requestedPlace[1],
         }
         console.log(formData);
-        OnAdded(formData);
+        OnAddedAlbatros(formData);
         setShowBooking(prev => !prev);
         setSuccess(true);
     }
+
 
     return(
       <>

@@ -8,7 +8,7 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
 
 
 
-    const openBooking = (fila, ombrellone) => {
+    const openBookingAlbatros = (fila, ombrellone) => {
         let prenotazione = [];
         prenotazione.push(fila);
         prenotazione.push(ombrellone);
@@ -74,8 +74,9 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
                     }
                     else{
                         if(requestedDates.length!=0){
+
                                 children.push(
-                                    <button className="col" style={{flexWrap:"nowrap"}} onClick={()=>{openBooking(i,ombrellone);}}>
+                                    <button className="col" style={{flexWrap:"nowrap"}} onClick={()=>{openBookingAlbatros(i,ombrellone);}}>
                                         {/*{`Col ${j + 1}`}*/}
                                         {<IoMan size={20}/>}
                                         {<FaUmbrellaBeach size={24}/>}

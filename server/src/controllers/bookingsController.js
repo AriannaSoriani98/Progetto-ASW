@@ -1,19 +1,143 @@
 var mongoose = require('mongoose');
 
-Booking = require("../models/bookingsModel.js")(mongoose);
+BookingAlbatros = require("../models/bookingsModelAlbatros.js")(mongoose);
+BookingHakunaMatata = require("../models/bookingsModelHakunaMatata.js")(mongoose);
+BookingFaro = require("../models/bookingsModelFaro.js")(mongoose);
+BookingMarrakech = require("../models/bookingsModelMarrakech.js")(mongoose);
+BookingGranchio = require("../models/bookingsModelGranchio.js")(mongoose);
+BookingFloridaBeach = require("../models/bookingsModelFloridaBeach.js")(mongoose);
+BookingOasi = require("../models/bookingsModelOasi.js")(mongoose);
+BookingMexico = require("../models/bookingsModelMexico.js")(mongoose);
 
-
-
-exports.list_bookings = function(req, res) {
-	Booking.find({}, function(err, booking) {
+exports.list_bookings_albatros = function(req, res) {
+	BookingAlbatros.find({}, function(err, booking) {
 		if (err)
 			res.send(err);
 		res.json(booking);
 	});
 };
 
-exports.create_booking = function(req, res) {
-	var new_booking = new Booking(req.body);
+exports.create_booking_albatros = function(req, res) {
+	var new_booking = new BookingAlbatros(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_hakunamatata = function(req, res) {
+	BookingHakunaMatata.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_hakunamatata = function(req, res) {
+	var new_booking = new BookingHakunaMatata(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_faro = function(req, res) {
+	BookingFaro.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_faro = function(req, res) {
+	var new_booking = new BookingFaro(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_marrakech = function(req, res) {
+	BookingMarrakech.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_marrakech = function(req, res) {
+	var new_booking = new BookingMarrakech(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_granchio = function(req, res) {
+	BookingGranchio.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_granchio = function(req, res) {
+	var new_booking = new BookingGranchio(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_floridabeach = function(req, res) {
+	BookingFloridaBeach.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_floridabeach = function(req, res) {
+	var new_booking = new BookingFloridaBeach(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_oasi = function(req, res) {
+	BookingOasi.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_oasi = function(req, res) {
+	var new_booking = new BookingOasi(req.body);
+	new_booking.save(function(err, booking) {
+		if (err)
+			res.send(err);
+		res.status(201).json(booking);
+	});
+};
+
+exports.list_bookings_mexico = function(req, res) {
+	BookingMexico.find({}, function(err, booking) {
+		if (err)
+			res.send(err);
+		res.json(booking);
+	});
+};
+
+exports.create_booking_mexico = function(req, res) {
+	var new_booking = new BookingMexico(req.body);
 	new_booking.save(function(err, booking) {
 		if (err)
 			res.send(err);
