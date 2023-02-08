@@ -2,7 +2,7 @@ import React from "react";
 import "./popup.css";
 import styled from "styled-components";
 import {MdClose} from "react-icons/md";
-import {IoCheckmarkDoneCircleOutline} from "react-icons/all";
+import {IoCheckmarkDoneCircleOutline, MdErrorOutline} from "react-icons/all";
 
 const CloseBookingButton = styled(MdClose)`
   cursor: pointer;
@@ -15,12 +15,15 @@ const CloseBookingButton = styled(MdClose)`
   z-index: 10;
   
 `;
-export const Popup = ({ text, closePopup }) => {
+export const Popup = ({ text, closePopup, esito }) => {
     return (
         <div className="popup-container">
             <div className="popup-body">
-
+                {esito ? (
                     <IoCheckmarkDoneCircleOutline size={30} color="green"/>
+                ) : (
+                    <MdErrorOutline size={30} color="red"/>
+                )}
                     <h2>{text} </h2>
                     <CloseBookingButton
                         aria-label='Close booking'

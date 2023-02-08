@@ -4,7 +4,7 @@ import React, {Component, useEffect, useState} from 'react'
 
 import Albatros from "./Albatros";
 import { Link } from 'react-router-dom';
-
+import {GiPalmTree,GiSeagull,SiLighthouse, GiSurfBoard,GiSadCrab,GiAtSea,GiOasis,IoSunny} from "react-icons/all";
 
 const Container = styled.div`
   display: flex;
@@ -34,9 +34,9 @@ const Button = styled.button`
   height: 100px;
   padding: 16px 20px;
   border-radius: 20px;
-  border: none;
-  background: #141414;
-  color: #fff;
+  border-color: #003580;
+  background: #AACFEF;
+  color: #003580;
   cursor: pointer;
   margin: auto;
 `;
@@ -70,23 +70,37 @@ const Reservation = () =>{
                 <Item>
 
                         <Link to="/booking/Albatros" >
-                            <Button> Albatros </Button>
+                            <Button>
+                                <GiSeagull/>
+                                Albatros
+                            </Button>
+
+
                         </Link>
                 </Item>
                 <Item>
                         <Link to="/booking/HakunaMatata" >
-                            <Button> Hakuna Matata </Button>
+                            <Button>
+                                <GiPalmTree/>
+                                Hakuna Matata
+                            </Button>
                         </Link>
                 </Item>
                 <Item>
                         <Link to="/booking/Faro" >
-                            <Button> Faro </Button>
+                            <Button>
+                                <SiLighthouse/>
+                                Faro
+                            </Button>
                         </Link>
 
                 </Item>
                 <Item>
                         <Link to="/booking/Marrakech" >
-                            <Button> Marrakech </Button>
+                            <Button>
+                                <GiSurfBoard/>
+                                Marrakech
+                            </Button>
                         </Link>
 
 
@@ -96,25 +110,37 @@ const Reservation = () =>{
             <Column2>
                 <Item>
                         <Link to="/booking/Granchio" >
-                            <Button> Granchio </Button>
+                            <Button>
+                                <GiSadCrab/>
+                                Granchio
+                            </Button>
                         </Link>
 
                 </Item>
                 <Item>
                         <Link to="/booking/FloridaBeach" >
-                            <Button> Florida Beach </Button>
+                            <Button>
+                                <GiAtSea/>
+                                Florida Beach
+                            </Button>
                         </Link>
 
                 </Item>
                 <Item>
                         <Link to="/booking/Oasi" >
-                            <Button> Oasi </Button>
+                            <Button>
+                                <GiOasis/>
+                                Oasi
+                            </Button>
                         </Link>
 
                 </Item>
                 <Item>
                         <Link to="/booking/Mexico" >
-                            <Button> Mexico </Button>
+                            <Button>
+                                <IoSunny/>
+                                Mexico
+                            </Button>
                         </Link>
 
                 </Item>

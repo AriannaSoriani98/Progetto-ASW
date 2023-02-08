@@ -78,7 +78,7 @@ const P = styled.div`
 
 
 
-export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros, success, setSuccess})=> {
+export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros})=> {
 
     console.log(requestedDates);
     console.log(requestedPlace);
@@ -147,7 +147,6 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
         console.log(formData);
         OnAddedAlbatros(formData);
         setShowBooking(prev => !prev);
-        setSuccess(true);
     }
 
 

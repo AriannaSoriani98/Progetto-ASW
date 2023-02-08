@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {Calendar} from "./Calendar";
 import {Booking} from "./Booking";
 import {Table} from "./Table";
+import {Delete} from "./Delete";
 import {GlobalStyle} from "../pages/globalStyles";
 import axios from "axios";
 import {Popup} from "./Popup";
@@ -19,23 +20,44 @@ const Button = styled.button`
   width: 180px;
   padding: 16px 20px;
   border-radius: 4px;
-  border: none;
-  background: #141414;
+  border-width: 2px;
+  background: cornflowerblue;
   color: #fff;
   cursor: pointer;
   margin: auto;
+`
+
+const Button2 = styled.button`
+  width: 210px;
+  padding: 16px 20px;
+  border-radius: 4px;
+  border-width: 2px;
+  background: indianred;
+  color: #fff;
+  cursor: pointer;
+  margin: auto;
+`
+
+const Selezione = styled.span`
+  display: flex;
+  text-align: right;
+  padding-left: 20%;
+  padding-right: 20%;
 `
 
 const Albatros = () =>{
     const [success, setSuccess] = useState(false);
 
     const [showModal, setShowModal] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
     const [showBooking, setShowBooking] = useState(false);
+    const [successDelete, setSuccessDelete] = useState(false);
+    const [esito, setEsito] = useState(false);
 
     const [requestedDates, setRequestedDates] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [loadedBookingsAlbatros, setLoadedBookingsAlbatros] = useState([]);
-
+    const [text, setText]=useState(" ");
     const [requestedPlace, setRequestedPlace] = useState([]);
 
 
@@ -61,21 +83,49 @@ const Albatros = () =>{
                 newList.push(response.data)
                 setLoadedBookingsAlbatros(newList);
                 setIsLoading(false);
-
-            })
+                setSuccess(prev => !prev);
+                setEsito(true);
+                setText("Prenotazione avvenuta con successo!");
+            }).catch(error => {
+            console.log(error);
+            setText('Qualcosa è andato storto. Riprova più tardi.');
+        })
     }
 
+    function OnDelete(_id){
+        axios.delete('http://localhost:3000//api/bookingsAlbatros/${_id}')
+            .then(response=>{
 
+                    if(response.status==404){
+                        console.log('Not Found');
+                        setText('Prenotazione non trovata!');
+                        setEsito(false);
+                    }
+                    else{
+                        console.log('Deleted');
+                        console.log(response.status);
+                        setEsito(true);
+                        setText("Eliminazione avvenuta con successo!");
+
+                    }
+                }
+            ).catch(error =>{
+            console.log(error);
+            setText('Not Found');
+
+        })
+        setSuccessDelete(prev => !prev);
+        console.log(_id);
+
+    }
 
     const openModal = () => {
         setShowModal(prev => !prev);
     };
 
-
-    console.log(requestedDates);
-
-
-    console.log(loadedBookingsAlbatros);
+    const openDelete = () => {
+        setShowDelete(prev => !prev);
+    };
 
 
     return(
@@ -83,8 +133,14 @@ const Albatros = () =>{
 
         {/*<BookingCalendar />*/}
         <div className={"apice"}></div>
-        <Button onClick={openModal}>Scegli il periodo</Button>
+        <Selezione>
+            <Button onClick={openModal}>Scegli il periodo</Button>
+            <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
+        </Selezione>
+
         <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates}/>
+        <Delete showDelete={showDelete} setShowDelete={setShowDelete} OnDelete={OnDelete} done={successDelete} setDone={setSuccessDelete}/>
+        {successDelete ? <Popup text={text} esito={esito} closePopup={() => setSuccessDelete(false)} /> : null}
 
         <GlobalStyle />
 
@@ -92,7 +148,7 @@ const Albatros = () =>{
                showBooking={showBooking} setShowBooking={setShowBooking}/>
 
         <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAddedAlbatros} success={success} setSuccess={setSuccess}/>
-        {success ? <Popup text="Prenotazione avvenuta con successo!" closePopup={() => setSuccess(false)} /> : null}
+        {success ? <Popup text={text} esito={esito} closePopup={() => setSuccess(false)} /> : null}
 
         </body>
 

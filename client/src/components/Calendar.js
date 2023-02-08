@@ -2,22 +2,12 @@ import React, { useRef, useEffect, useCallback, useState} from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import axios from "axios";
-
 import { DateRange } from 'react-date-range';
-import { addDays } from 'date-fns';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-
 import moment from 'moment';
 import {DatePicker} from "antd";
-import Availability from "./Availability";
-import { format } from 'date-fns';
-import {Link} from "react-router-dom";
-import {Route} from 'react-router-dom'
 const {RangePicker} = DatePicker;
-
-
 
 
 const Background = styled.div`

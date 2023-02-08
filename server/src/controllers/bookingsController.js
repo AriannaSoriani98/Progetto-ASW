@@ -26,6 +26,22 @@ exports.create_booking_albatros = function(req, res) {
 	});
 };
 
+exports.delete_Albatros = function(req, res) {
+	BookingAlbatros.deleteOne({_id: req.params.id}, function(err, result) {
+		if (err)
+			res.send(err);
+		else{
+			if(result.deletedCount==0){
+				res.status(404).send({
+					description: 'Booking not found'
+				});
+			}
+			else{
+				res.json({ message: 'Task successfully deleted' });
+			}
+		}
+	});
+};
 exports.list_bookings_hakunamatata = function(req, res) {
 	BookingHakunaMatata.find({}, function(err, booking) {
 		if (err)

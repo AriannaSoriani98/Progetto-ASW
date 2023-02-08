@@ -5,6 +5,9 @@ module.exports = function(app) {
 		.get(bookingsController.list_bookings_albatros)
 		.post(bookingsController.create_booking_albatros);
 
+	app.route('/api/bookingsAlbatros/:id')
+		.delete(bookingsController.delete_Albatros);
+
 	app.route('/api/bookingsHakunaMatata')
 		.get(bookingsController.list_bookings_hakunamatata)
 		.post(bookingsController.create_booking_hakunamatata);
@@ -32,4 +35,5 @@ module.exports = function(app) {
 	app.route('/api/bookingsMexico')
 		.get(bookingsController.list_bookings_mexico)
 		.post(bookingsController.create_booking_mexico);
+
 };
