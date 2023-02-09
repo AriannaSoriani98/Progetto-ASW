@@ -1,8 +1,9 @@
-import Albatros from "../components/Albatros";
+import {General} from "../components/General";
 
 function AlbatrosPage() {
+
     return (
-        <Albatros/>
+        <General title={"Albatros"}/>
     )
 }
 

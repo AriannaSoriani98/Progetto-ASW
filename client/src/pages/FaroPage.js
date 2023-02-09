@@ -1,8 +1,8 @@
-import Faro from "../components/Faro";
+import {General} from "../components/General";
 
 function FaroPage() {
     return (
-        <Faro/>
+        <General title={"Faro"}/>
     )
 }
 

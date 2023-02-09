@@ -45,7 +45,7 @@ const Selezione = styled.span`
   padding-right: 20%;
 `
 
-const Albatros = () =>{
+export const General = ({title})=> {
     const [success, setSuccess] = useState(false);
 
     const [showModal, setShowModal] = useState(false);
@@ -56,32 +56,32 @@ const Albatros = () =>{
 
     const [requestedDates, setRequestedDates] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [loadedBookingsAlbatros, setLoadedBookingsAlbatros] = useState([]);
+    const [loadedBookings, setLoadedBookings] = useState([]);
     const [text, setText]=useState(" ");
     const [requestedPlace, setRequestedPlace] = useState([]);
 
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/api/bookingsAlbatros')
+        axios.get('http://localhost:3000/api/bookings'+title)
             .then(response =>{
-                let bookingsAlbatros= [];
-                bookingsAlbatros = response.data
+                let bookings= [];
+                bookings = response.data
                 /*reservations.forEach(function(umbrella) {
                     if(umbrella.poster!=null) umbrella.poster = umbrella.poster.replace("http://ia.media-imdb.com/", "https://m.media-amazon.com/")
                 });*/
                 setIsLoading(false);
-                setLoadedBookingsAlbatros(bookingsAlbatros);
+                setLoadedBookings(bookings);
             })
     },[]);
 
-    function OnAddedAlbatros(bookingAlbatros) {
+    function OnAdded(booking) {
         setIsLoading(true)
-        axios.post("http://localhost:3000/api/bookingsAlbatros", bookingAlbatros)
+        axios.post("http://localhost:3000/api/bookings"+title, booking)
             .then( response => {
                 //console.log(response.data);
-                const newList = loadedBookingsAlbatros;
+                const newList = loadedBookings;
                 newList.push(response.data)
-                setLoadedBookingsAlbatros(newList);
+                setLoadedBookings(newList);
                 setIsLoading(false);
                 setSuccess(prev => !prev);
                 setEsito(true);
@@ -93,7 +93,7 @@ const Albatros = () =>{
     }
 
     function OnDelete(_id){
-        axios.delete('http://localhost:3000//api/bookingsAlbatros/${_id}')
+        axios.delete('http://localhost:3000//api/bookings'+title+'/${_id}')
             .then(response=>{
 
                     if(response.status==404){
@@ -144,10 +144,10 @@ const Albatros = () =>{
 
         <GlobalStyle />
 
-        <Table bookings={loadedBookingsAlbatros} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
+        <Table bookings={loadedBookings} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
                showBooking={showBooking} setShowBooking={setShowBooking}/>
 
-        <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAddedAlbatros} success={success} setSuccess={setSuccess}/>
+        <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAdded} success={success} setSuccess={setSuccess}/>
         {success ? <Popup text={text} esito={esito} closePopup={() => setSuccess(false)} /> : null}
 
         </body>
@@ -155,4 +155,3 @@ const Albatros = () =>{
 
     );
 };
-export default Albatros;

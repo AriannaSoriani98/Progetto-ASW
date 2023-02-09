@@ -1,8 +1,8 @@
-import Granchio from "../components/Granchio";
+import {General} from "../components/General";
 
 function GranchioPage() {
     return (
-        <Granchio/>
+        <General title={"Granchio"}/>
     )
 }
 

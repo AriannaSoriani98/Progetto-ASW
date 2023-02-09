@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-import React, {Component, useEffect, useState} from 'react'
-
-import Albatros from "./Albatros";
+import React from 'react'
 import { Link } from 'react-router-dom';
 import {GiPalmTree,GiSeagull,SiLighthouse, GiSurfBoard,GiSadCrab,GiAtSea,GiOasis,IoSunny} from "react-icons/all";
 

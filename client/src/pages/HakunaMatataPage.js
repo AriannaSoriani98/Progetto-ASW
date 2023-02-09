@@ -1,8 +1,8 @@
-import HakunaMatata from "../components/HakunaMatata";
+import {General} from "../components/General";
 
 function HakunaMatataPage() {
     return (
-        <HakunaMatata/>
+        <General title={"HakunaMatata"}/>
     )
 }
 

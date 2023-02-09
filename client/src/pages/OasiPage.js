@@ -1,8 +1,8 @@
-import Oasi from "../components/Oasi";
+import {General} from "../components/General";
 
 function OasiPage() {
     return (
-        <Oasi/>
+        <General title={"Oasi"}/>
     )
 }
 

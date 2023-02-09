@@ -1,8 +1,8 @@
-import Mexico from "../components/Mexico";
+import {General} from "../components/General";
 
 function MexicoPage() {
     return (
-        <Mexico/>
+        <General title={"Mexico"}/>
     )
 }
 

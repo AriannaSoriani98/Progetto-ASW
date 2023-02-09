@@ -1,8 +1,8 @@
-import Marrakech from "../components/Marrakech";
+import {General} from "../components/General";
 
 function MarrakechPage() {
     return (
-        <Marrakech/>
+        <General title={"Marrakech"}/>
     )
 }
 

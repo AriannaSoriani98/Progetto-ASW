@@ -1,8 +1,8 @@
-import FloridaBeach from "../components/FloridaBeach";
+import {General} from "../components/General";
 
 function FloridaBeachPage() {
     return (
-        <FloridaBeach/>
+        <General title={"FloridaBeach"}/>
     )
 }
 
