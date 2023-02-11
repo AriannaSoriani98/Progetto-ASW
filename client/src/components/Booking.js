@@ -3,7 +3,6 @@ import { useSpring, animated } from 'react-spring';
 import styled from "styled-components";
 import {MdClose} from "react-icons/md";
 import moment from 'moment';
-import { Popup } from "./Popup";
 
 const Background = styled.div`
   width: 100%;

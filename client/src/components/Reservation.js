@@ -2,10 +2,10 @@ import styled from "styled-components";
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {GiPalmTree,GiSeagull,SiLighthouse, GiSurfBoard,GiSadCrab,GiAtSea,GiOasis,IoSunny} from "react-icons/all";
+import "./home.css";
 
 const Container = styled.div`
   display: flex;
-  
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -58,7 +58,7 @@ const Reservation = () =>{
 
 
     return(
-        <body style={{overflowX: "auto", overflowY: "auto"}}>
+        <body>
 
         {/*<BookingCalendar />*/}
 

@@ -17,6 +17,7 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
+  
   width: 180px;
   padding: 16px 20px;
   border-radius: 4px;
@@ -24,7 +25,7 @@ const Button = styled.button`
   background: cornflowerblue;
   color: #fff;
   cursor: pointer;
-  margin: auto;
+  margin:auto;
 `
 
 const Button2 = styled.button`
@@ -35,12 +36,13 @@ const Button2 = styled.button`
   background: indianred;
   color: #fff;
   cursor: pointer;
-  margin: auto;
+  margin:auto;
+  margin-bottom: 20px;
 `
 
 const Selezione = styled.span`
-  display: flex;
-  text-align: right;
+  flexWrap:"nowrap";
+  text-align: center;
   padding-left: 20%;
   padding-right: 20%;
 `
@@ -133,12 +135,13 @@ export const General = ({title})=> {
 
         {/*<BookingCalendar />*/}
         <div className={"apice"}></div>
-        <Selezione>
+        {/*<Selezione>
             <Button onClick={openModal}>Scegli il periodo</Button>
             <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
-        </Selezione>
+        </Selezione>*/}
+        <Button onClick={openModal}>Scegli il periodo</Button>
 
-        <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates}/>
+        <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates} />
         <Delete showDelete={showDelete} setShowDelete={setShowDelete} OnDelete={OnDelete} done={successDelete} setDone={setSuccessDelete}/>
         {successDelete ? <Popup text={text} esito={esito} closePopup={() => setSuccessDelete(false)} /> : null}
 
@@ -146,6 +149,7 @@ export const General = ({title})=> {
 
         <Table bookings={loadedBookings} requestedDates={requestedDates} requestedPlace={requestedPlace} setRequestedPlace={setRequestedPlace}
                showBooking={showBooking} setShowBooking={setShowBooking}/>
+        <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
 
         <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAdded} success={success} setSuccess={setSuccess}/>
         {success ? <Popup text={text} esito={esito} closePopup={() => setSuccess(false)} /> : null}

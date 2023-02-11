@@ -3,12 +3,14 @@ import styled, {css} from "styled-components";
 import {IoMdArrowRoundForward} from "react-icons/io";
 import {Button} from './Button';
 import {IoArrowForward,IoArrowBack} from "react-icons/io5";
+import "./home.css";
 
 const HomeSection=styled.section`
   height: 100vh;
   max-height: 1100px;
   position: relative;
   overflow: hidden;
+  background-color: #FFFFFF;
 `;
 const HomeWrapper=styled.div`
   width: 100%;
@@ -181,6 +183,7 @@ const Home=({slides})=> {
                 </SliderButtons>
             </HomeWrapper>
         </HomeSection>
+
     )
 }
 
