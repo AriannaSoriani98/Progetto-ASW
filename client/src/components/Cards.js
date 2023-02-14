@@ -1,20 +1,11 @@
 import styled, {css} from "styled-components";
 import {IoArrowBack, IoArrowForward} from "react-icons/io5";
 import {IoMdArrowRoundForward} from "react-icons/io";
-import {Button} from "./Button";
 import React,{useState,useRef,useEffect} from 'react'
 import {Link} from "react-router-dom";
-import GoogleMap from "./GoogleMap";
 import {GiTable,AiFillInstagram, AiOutlineMail, FaFacebookSquare, GiPositionMarker, IoCallOutline, BiEuro, FaUmbrellaBeach} from "react-icons/all";
 import "./contatti.css";
 
-const HomeSection=styled.section`
-  height: 100vh;
-  max-height: 1100px;
-  position: relative;
-  overflow: hidden;
-  background-color: #FFFFFF;
-`;
 const HomeWrapper=styled.div`
   width: 60%;
   height: 80%;
@@ -33,21 +24,7 @@ const HomeWrapper=styled.div`
   -o-background-size: cover;
   background-size: cover;
 `;
-const HomeSlide=styled.div`
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-`;
-const HomeSlider=styled.div`
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+
 const HomeImage=styled.img`
   position: absolute;
   top:0;
@@ -128,10 +105,10 @@ const PrevArrow=styled(IoArrowBack)`
 const NextArrow=styled(IoArrowForward)`
   ${arrowButtons}
 `;
-const H1 = styled.h1`
-  background-color: #060b26;
-  
+const H1=styled.h1`
+  font-size:2px;
 `;
+
 
 const Cards =({cards})=> {
     const [current,setCurrent]=useState(0)
@@ -157,27 +134,34 @@ const Cards =({cards})=> {
     }
 
     return (
+
         <body>
-        {cards.map((card, index) => {
-            return (
-                <div className="contacts-container" key={index}>
+            <HomeWrapper>
 
-                    {index === current && (
-                        <div className="cards-container" key={index}>
+                {cards.map((card, index) => {
+                    return (
+                        <div className="cards-container-ext" key={index}>
 
-                            <Link to="/" className="close-btn">
-                                x
-                            </Link>
+                            {index === current && (
+                                <div className="cards-container" key={index}>
 
-                            <div className="card-left">
-                                <h1>{card.title}</h1>
-                                <HomeImage src={card.image}/>
-                            </div>
+                                    <Link to="/" className="close-btn">
+                                        x
+                                    </Link>
 
-                            <div className="contact-right">
+                                    <div className="card-left">
 
-                                <div className="contact">
-                                    {/*<div className="contact-type">
+                                        <HomeImage src={card.image}/>
+                                        <HomeContent>
+                                            <h1 size={"10"}>{card.title}</h1>
+                                        </HomeContent>
+
+                                    </div>
+
+                                    <div className="contact-right">
+
+                                        <div className="contact">
+                                            {/*<div className="contact-type">
 
                                         <div className="contact-label">
                                             <div className="icon">
@@ -223,148 +207,148 @@ const Cards =({cards})=> {
                                                 </div>
                                     </div>*/}
 
-                                    <table>
-                                        <tr>
-                                            <th width={"190px"}>
-                                                <div className="contact-label">
-                                                    <div className="icon">
-                                                        <BiEuro/>
-                                                    </div>
-                                                    Prezzi:
-                                                </div>
-                                            </th>
+                                            <table>
+                                                <tr>
+                                                    <th width={"190px"}>
+                                                        <div className="contact-label">
+                                                            <div className="icon">
+                                                                <BiEuro/>
+                                                            </div>
+                                                            Prezzi:
+                                                        </div>
+                                                    </th>
 
-                                        </tr>
-                                        <tr>
+                                                </tr>
+                                                <tr>
 
-                                            <td width={"200px"}>
-                                                <div className="content">
-                                                    Prima fila:
-                                                        <ul>
-                                                            <li>
-                                                                Ombrellone : {card.prima_ombrellone}
-                                                            </li>
-                                                            <li>
-                                                                Lettino : {card.prima_lettino}
-                                                            </li>
+                                                    <td width={"200px"}>
+                                                        <div className="content">
+                                                            Prima fila:
+                                                            <ul>
+                                                                <li>
+                                                                    Ombrellone : {card.prima_ombrellone}
+                                                                </li>
+                                                                <li>
+                                                                    Lettino : {card.prima_lettino}
+                                                                </li>
 
-                                                        </ul>
+                                                            </ul>
 
-                                                </div>
-                                            </td>
-                                            <td width={"20px"}></td>
-                                            <td width={"200px"}>
-                                                <div className="content">
-                                                    Seconda e terza fila:
-                                                    <ul>
-                                                        <li>
-                                                            Ombrellone : {card.sec_terza_ombrellone}
-                                                        </li>
-                                                        <li>
-                                                            Lettino : {card.sec_terza_lettino}
-                                                        </li>
+                                                        </div>
+                                                    </td>
+                                                    <td width={"20px"}></td>
+                                                    <td width={"200px"}>
+                                                        <div className="content">
+                                                            Seconda e terza fila:
+                                                            <ul>
+                                                                <li>
+                                                                    Ombrellone : {card.sec_terza_ombrellone}
+                                                                </li>
+                                                                <li>
+                                                                    Lettino : {card.sec_terza_lettino}
+                                                                </li>
 
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width={"200px"}>
-                                                <div className="content">
-                                                    Altre file:
-                                                    <ul>
-                                                        <li>
-                                                            Ombrellone : {card.altri_ombrellone}
-                                                        </li>
-                                                        <li>
-                                                            Lettino : {card.altri_lettino}
-                                                        </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width={"200px"}>
+                                                        <div className="content">
+                                                            Altre file:
+                                                            <ul>
+                                                                <li>
+                                                                    Ombrellone : {card.altri_ombrellone}
+                                                                </li>
+                                                                <li>
+                                                                    Lettino : {card.altri_lettino}
+                                                                </li>
 
-                                                    </ul>
-                                                </div>
+                                                            </ul>
+                                                        </div>
 
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <table>
-                                        <tr>
-                                            <th width={"190px"}>
-                                                <div className="contact-label">
-                                                    <div className="icon">
-                                                        <IoCallOutline/>
-                                                    </div>
-                                                    Contatti:
-                                                </div>
-                                            </th>
-                                            <th width={"40px"}>
-                                            </th>
-                                            <th width={"190px"}>
-                                                <div className="contact-label">
-                                                    <div className={"icon"}>
-                                                        <AiOutlineMail/>
-                                                    </div>
-                                                    E-mail:
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td width={"190px"}>
-                                                <div className="content">
-                                                    {card.telefono} <br/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <table>
+                                                <tr>
+                                                    <th width={"190px"}>
+                                                        <div className="contact-label">
+                                                            <div className="icon">
+                                                                <IoCallOutline/>
+                                                            </div>
+                                                            Contatti:
+                                                        </div>
+                                                    </th>
+                                                    <th width={"40px"}>
+                                                    </th>
+                                                    <th width={"190px"}>
+                                                        <div className="contact-label">
+                                                            <div className={"icon"}>
+                                                                <AiOutlineMail/>
+                                                            </div>
+                                                            E-mail:
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td width={"190px"}>
+                                                        <div className="content">
+                                                            {card.telefono} <br/>
 
-                                                </div>
-                                            </td>
-                                            <td width={"40px"}>
-                                            </td>
+                                                        </div>
+                                                    </td>
+                                                    <td width={"40px"}>
+                                                    </td>
 
-                                            <td width={"190px"}>
-                                                <div className="content">
-                                                    {card.email}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <br/>
-                                    <table>
-                                        <tr>
-                                            <th width={"190px"}>
-                                                <div className="contact-label">
-                                                    Seguici sui social!
-                                                </div>
-                                            </th>
-                                            <th width={"40px"}>
-                                            </th>
-                                            <th width={"190px"}>
-                                                <div className="contact-label">
-                                                    <div className="icon">
-                                                        <GiPositionMarker/>
-                                                    </div>
-                                                    Numero Bagno:
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td width={"190px"}>
-                                                <div className="content">
-                                                    <AiFillInstagram/>
-                                                    {card.instagram} <br/>
-                                                    <FaFacebookSquare/>
-                                                    {card.facebook}
-                                                </div>
-                                            </td>
-                                            <td width={"40px"}>
-                                            </td>
-                                            <td width={"190px"}>
-                                                <div className="content">
-                                                    {card.numero}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    {/*<div className="contact-type">
+                                                    <td width={"190px"}>
+                                                        <div className="content">
+                                                            {card.email}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br/>
+                                            <table>
+                                                <tr>
+                                                    <th width={"190px"}>
+                                                        <div className="contact-label">
+                                                            Seguici sui social!
+                                                        </div>
+                                                    </th>
+                                                    <th width={"40px"}>
+                                                    </th>
+                                                    <th width={"190px"}>
+                                                        <div className="contact-label">
+                                                            <div className="icon">
+                                                                <GiPositionMarker/>
+                                                            </div>
+                                                            Numero Bagno:
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td width={"190px"}>
+                                                        <div className="content">
+                                                            <AiFillInstagram/>
+                                                            {card.instagram} <br/>
+                                                            <FaFacebookSquare/>
+                                                            {card.facebook}
+                                                        </div>
+                                                    </td>
+                                                    <td width={"40px"}>
+                                                    </td>
+                                                    <td width={"190px"}>
+                                                        <div className="content">
+                                                            {card.numero}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            {/*<div className="contact-type">
 
                                         <div className="contact-label">
                                             <div className="icon">
@@ -411,17 +395,25 @@ const Cards =({cards})=> {
                                         </div>
 
                                     </div>*/}
-                                </div>
+                                        </div>
 
-                            </div>
+
+                                    </div>
+
+                                </div>
+                            )}
 
                         </div>
-                    )}
+                    )
+                })}
 
-                </div>
-            )
-        })}
+            </HomeWrapper>
+            <SliderButtons>
+                <PrevArrow onClick={prevSlide}/>
+                <NextArrow onClick={nextSlide}/>
+            </SliderButtons>
         </body>
+
         /*<HomeSection>
         <HomeWrapper>
             {cards.map( (card, index)=>{
