@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import styled from "styled-components";
 import {MdClose} from "react-icons/md";
 import moment from 'moment';
+import {CardsData} from "../data/CardsData";
 
 const Background = styled.div`
   width: 100%;
@@ -70,23 +71,44 @@ const CloseBookingButton = styled(MdClose)`
   
 `;
 
-const P = styled.div`
+const B = styled.b`
   color: red;
 `;
 
 
 
 
-export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros})=> {
+export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros,data})=> {
 
     console.log(requestedDates);
     console.log(requestedPlace);
+    console.log(data);
+
+    const [lettino,setLettino] = useState('');
+    const [ombrellone,setOmbrellone]= useState('');
+
+
+    useEffect(()=> {
+        if(requestedPlace[0]>3){
+            setLettino(data[0].altri_lettino);
+            setOmbrellone(data[0].altri_ombrellone);
+        }
+        else if((requestedPlace[0]==2)||(requestedPlace[0]==3)){
+            setLettino(data[0].sec_terza_lettino);
+            setOmbrellone(data[0].sec_terza_ombrellone);
+        } else if(requestedPlace[0]=="1"){
+            setLettino(data[0].prima_lettino);
+            setOmbrellone(data[0].prima_ombrellone);
+        }
+
+    });
 
 
     const [fromDate,setFromDate] = useState('');
     const [toDate,setToDate] = useState('');
     const [fila,setFila] = useState('');
     const [postazione,setPostazione] = useState('');
+
 
     function FromDateHandler(event){
         setFromDate(event.target.value)
@@ -99,6 +121,12 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
     }
     function PostazioneHandler(event){
         setPostazione(event.target.value)
+    }
+    function OmbrelloneHandler(event){
+        setOmbrellone(event.target.value)
+    }
+    function LettinoHandler(event){
+        setLettino(event.target.value)
     }
 
     const bookingRef = useRef();
@@ -158,17 +186,18 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
                       <ModalWrapper showBooking={showBooking}>
 
                           <LeftBox>
-                              <div className="col-md-7">
+                              <div className="col-md-9">
                                   <h1>Booking details</h1>
                                   <hr/>
                                   <b>
 
                                           {" "}
-                                          <P>From Date:</P> <p onChange={FromDateHandler}>{moment(requestedDates[0]).format("DD-MM-YYYY")} </p>
-                                          <P>To Date: </P> <p onChange={ToDateHandler}> {moment(requestedDates[1]).format("DD-MM-YYYY")}</p>
-                                          <P>Fila: </P> <p onChange={FilaHandler}> {requestedPlace[0]} </p>
-                                          <P>Ombrellone:</P> <p onChange={PostazioneHandler}> {requestedPlace[1]} </p>
-
+                                          <B>From Date:</B> <span onChange={FromDateHandler}>{moment(requestedDates[0]).format("DD-MM-YYYY")} </span> <br/>
+                                          <B>To Date: </B> <span onChange={ToDateHandler}> {moment(requestedDates[1]).format("DD-MM-YYYY")}</span> <br/>
+                                          <B>Fila: </B> <span onChange={FilaHandler}> {requestedPlace[0]} </span> <br/>
+                                          <B>Ombrellone:</B> <span onChange={PostazioneHandler}> {requestedPlace[1]} </span> <br/>
+                                          <B>Prezzo ombrellone:</B> <span onChange={OmbrelloneHandler}> {ombrellone} </span> <br/>
+                                          <B>Prezzo singolo lettino:</B> <span onChange={LettinoHandler}> {lettino} </span> <br/>
 
                                   </b>
 

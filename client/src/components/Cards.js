@@ -7,22 +7,16 @@ import {GiTable,AiFillInstagram, AiOutlineMail, FaFacebookSquare, GiPositionMark
 import "./contatti.css";
 
 const HomeWrapper=styled.div`
-  width: 60%;
-  height: 80%;
-  top:10%;
-  left:20%;
-  right:20%;
-  bottom:10%;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  margin: 100px auto;
+  width: 1000px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 600px;
+  display: grid;
+  box-sizing: content-box;
+  grid-template-columns: 1fr 1fr;
 `;
 
 const HomeImage=styled.img`
@@ -62,7 +56,7 @@ const HomeContent=styled.div`
   color:#fff;
 
   h1{
-    font-size: clamp(1rem,8vw,10rem);
+    font-size: clamp(1rem,4vw,10rem);
     font-weight: 400;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0,0,0,0.4);
@@ -105,9 +99,7 @@ const PrevArrow=styled(IoArrowBack)`
 const NextArrow=styled(IoArrowForward)`
   ${arrowButtons}
 `;
-const H1=styled.h1`
-  font-size:2px;
-`;
+
 
 
 const Cards =({cards})=> {
@@ -135,78 +127,28 @@ const Cards =({cards})=> {
 
     return (
 
-        <body>
-            <HomeWrapper>
+        <body style={{overflowX: "auto"}}>
 
                 {cards.map((card, index) => {
                     return (
-                        <div className="cards-container-ext" key={index}>
+                        <>
+                        {/*<div className="cards-container-ext" key={index}>*/}
 
                             {index === current && (
-                                <div className="cards-container" key={index}>
+                                <div className="contacts-container" key={index}>
 
-                                    <Link to="/" className="close-btn">
-                                        x
-                                    </Link>
-
-                                    <div className="card-left">
+                                    <div className="card-left" >
 
                                         <HomeImage src={card.image}/>
                                         <HomeContent>
-                                            <h1 size={"10"}>{card.title}</h1>
+                                            <h1>{card.title}</h1>
                                         </HomeContent>
 
                                     </div>
 
-                                    <div className="contact-right">
+                                    <div className="contact-right" >
 
                                         <div className="contact">
-                                            {/*<div className="contact-type">
-
-                                        <div className="contact-label">
-                                            <div className="icon">
-                                                <BiEuro/>
-                                            </div>
-                                            Prezzi:
-                                        </div>
-                                        <div className="content">
-                                            <ul>
-                                                <li>Prima fila:
-                                                    <ul>
-                                                        <li>
-                                                            Ombrellone : {card.prima_ombrellone}
-                                                        </li>
-                                                        <li>
-                                                            Lettino : {card.prima_lettino}
-                                                        </li>
-
-                                                    </ul>
-                                                </li>
-                                                <li>Seconda e terza fila: </li>
-                                                <ul>
-                                                    <li>
-                                                        Ombrellone : {card.sec_terza_ombrellone}
-                                                    </li>
-                                                    <li>
-                                                        Lettino : {card.sec_terza_lettino}
-                                                    </li>
-
-                                                </ul>
-                                                <li>Altre file: </li>
-                                                <ul>
-                                                    <li>
-                                                        Ombrellone : {card.altri_ombrellone}
-                                                    </li>
-                                                    <li>
-                                                        Lettino : {card.altri_lettino}
-                                                    </li>
-
-                                                </ul>
-
-                                            </ul>
-                                                </div>
-                                    </div>*/}
-
                                             <table>
                                                 <tr>
                                                     <th width={"190px"}>
@@ -348,53 +290,6 @@ const Cards =({cards})=> {
                                                     </td>
                                                 </tr>
                                             </table>
-                                            {/*<div className="contact-type">
-
-                                        <div className="contact-label">
-                                            <div className="icon">
-                                                <IoCallOutline/>
-                                            </div>
-                                            Contatti:
-                                        </div>
-                                        <div className="content">
-                                            {card.telefono} <br/>
-
-                                        </div>
-                                    </div>
-                                    <div className="contact-type">
-                                        <div className="contact-label">
-                                            <div className={"icon"}>
-                                                <AiOutlineMail/>
-                                            </div>
-                                            E-mail:
-                                        </div>
-                                        <div className="content">
-                                            {card.email}
-                                        </div>
-                                    </div>
-                                    <div className="contact-type">
-                                        <div className="contact-label">
-                                            Seguici sui social!
-                                        </div>
-                                        <div className="content">
-                                            <AiFillInstagram/>
-                                            {card.instagram} <br/>
-                                            <FaFacebookSquare/>
-                                            {card.facebook}
-                                        </div>
-                                    </div>
-                                    <div className="contact-type">
-                                        <div className="contact-label">
-                                            <div className="icon">
-                                                <GiPositionMarker/>
-                                            </div>
-                                            Numero Bagno:
-                                        </div>
-                                        <div className="content">
-                                            {card.numero}
-                                        </div>
-
-                                    </div>*/}
                                         </div>
 
 
@@ -402,12 +297,12 @@ const Cards =({cards})=> {
 
                                 </div>
                             )}
+                        </>
 
-                        </div>
                     )
                 })}
 
-            </HomeWrapper>
+            {/*</HomeWrapper>*/}
             <SliderButtons>
                 <PrevArrow onClick={prevSlide}/>
                 <NextArrow onClick={nextSlide}/>

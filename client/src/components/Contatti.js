@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 function Contatti() {
     return (
-        <body>
+        <body style={{overflowX: "auto"}}>
             <div className="contacts-container">
 
                     <Link to="/" className="close-btn">

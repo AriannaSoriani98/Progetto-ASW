@@ -1,5 +1,5 @@
 import "./table.css"
-import {FaUmbrellaBeach, IoMan, CgUnavailable} from "react-icons/all";
+import {FaUmbrellaBeach, IoMan, CgUnavailable,FaWater} from "react-icons/all";
 
 export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPlace, showBooking, setShowBooking}) =>{
 
@@ -18,7 +18,7 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
     const createTable = () => {
         let table = []
         let num_col = 11
-        let num_row = 8
+        let num_row = 9
         let middle = num_col/2 + 0.5
         let bookings_length = bookings.length;
         let no_available = [];
@@ -43,56 +43,57 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
             //COLONNE
             for (let j = 1; j <= num_col; j++) {
                 let prenotato = false;
-                let ombrellone= 0;
-                if(j==middle){
-                    children.push(<td className="col" style={{border: "none", background: "none", flexWrap: "nowrap"}}></td>)
-                }
-                else {
-                    if (j > middle) {
-                        ombrellone = j - 1;
+                let ombrellone = 0;
+                    if (j == middle) {
+                        children.push(<td className="col"
+                                          style={{border: "none", background: "none", flexWrap: "nowrap"}}></td>)
                     } else {
-                        ombrellone = j;
-                    }
-
-                    for(let z=0;z<no_available_length;z++){
-                        if((i==no_available[z].fila) && (ombrellone==no_available[z].postazione)){
-                            prenotato = true;
+                        if (j > middle) {
+                            ombrellone = j - 1;
+                        } else {
+                            ombrellone = j;
                         }
-                    }
-                    if(prenotato){
-                        children.push(<td className="col" style={{flexWrap:"nowrap"}}>
-                            {/*{<IoMan size={20}/>}
+
+                        for (let z = 0; z < no_available_length; z++) {
+                            if ((i == no_available[z].fila) && (ombrellone == no_available[z].postazione)) {
+                                prenotato = true;
+                            }
+                        }
+                        if (prenotato) {
+                            children.push(<td className="col" style={{flexWrap: "nowrap"}}>
+                                {/*{<IoMan size={20}/>}
                             {<FaUmbrellaBeach size={24}/>}
                             {<IoMan size={20}/>}*/}
-                            {<IoMan size={20} />}
-                            {<CgUnavailable size={24} color={'red'}/>}
-                            {<IoMan size={20}/>}
-                        </td>)
-                    }
-                    else{
-                        if(requestedDates.length!=0){
+                                {<IoMan size={20}/>}
+                                {<CgUnavailable size={24} color={'red'}/>}
+                                {<IoMan size={20}/>}
+                            </td>)
+                        } else {
+                            if (requestedDates.length != 0) {
 
                                 children.push(
-                                    <button className="col" style={{flexWrap:"nowrap"}} onClick={()=>{openBookingAlbatros(i,ombrellone);}}>
+                                    <button className="col" style={{flexWrap: "nowrap"}} onClick={() => {
+                                        openBookingAlbatros(i, ombrellone);
+                                    }}>
                                         {/*{`Col ${j + 1}`}*/}
                                         {<IoMan size={20}/>}
                                         {<FaUmbrellaBeach size={24}/>}
                                         {<IoMan size={20}/>}
                                     </button>)
-                        }
-                        else{
-                            children.push(<td className="col" style={{flexWrap:"nowrap"}}>
-                                {<IoMan size={20}/>}
-                                {<FaUmbrellaBeach size={24}/>}
-                                {<IoMan size={20}/>}
-                            </td>)
-                        }
+                            } else {
+                                children.push(<td className="col" style={{flexWrap: "nowrap"}}>
+                                    {<IoMan size={20}/>}
+                                    {<FaUmbrellaBeach size={24}/>}
+                                    {<IoMan size={20}/>}
+                                </td>)
+                            }
 
 
+                        }
                     }
+
                 }
 
-            }
             //Create the parent and add the children
             table.push(<tr className="row" style={{flexWrap:"nowrap"}}>{children}</tr>)
         }

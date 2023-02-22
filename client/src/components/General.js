@@ -7,6 +7,7 @@ import {Delete} from "./Delete";
 import {GlobalStyle} from "../pages/globalStyles";
 import axios from "axios";
 import {Popup} from "./Popup";
+import "./home.css";
 
 const Container = styled.div`
   display: flex;
@@ -40,14 +41,8 @@ const Button2 = styled.button`
   margin-bottom: 20px;
 `
 
-const Selezione = styled.span`
-  flexWrap:"nowrap";
-  text-align: center;
-  padding-left: 20%;
-  padding-right: 20%;
-`
 
-export const General = ({title})=> {
+export const General = ({title,data})=> {
     const [success, setSuccess] = useState(false);
 
     const [showModal, setShowModal] = useState(false);
@@ -62,6 +57,8 @@ export const General = ({title})=> {
     const [text, setText]=useState(" ");
     const [requestedPlace, setRequestedPlace] = useState([]);
 
+
+    console.log(data);
 
     useEffect(()=>{
         axios.get('http://localhost:3000/api/bookings'+title)
@@ -97,7 +94,6 @@ export const General = ({title})=> {
     function OnDelete(_id){
         axios.delete('http://localhost:3000//api/bookings'+title+'/${_id}')
             .then(response=>{
-
                     if(response.status==404){
                         console.log('Not Found');
                         setText('Prenotazione non trovata!');
@@ -131,14 +127,10 @@ export const General = ({title})=> {
 
 
     return(
-        <body style={{overflowX: "auto", overflowY: "auto"}}>
+        <body>
+        <div className={"background"}>
 
-        {/*<BookingCalendar />*/}
         <div className={"apice"}></div>
-        {/*<Selezione>
-            <Button onClick={openModal}>Scegli il periodo</Button>
-            <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
-        </Selezione>*/}
         <Button onClick={openModal}>Scegli il periodo</Button>
 
         <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates} />
@@ -151,9 +143,10 @@ export const General = ({title})=> {
                showBooking={showBooking} setShowBooking={setShowBooking}/>
         <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
 
-        <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAdded} success={success} setSuccess={setSuccess}/>
+        <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAdded} success={success} setSuccess={setSuccess} data={data}/>
         {success ? <Popup text={text} esito={esito} closePopup={() => setSuccess(false)} /> : null}
 
+        </div>
         </body>
 
 

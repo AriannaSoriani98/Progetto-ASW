@@ -1,6 +1,14 @@
 import ImageOne from '../STABILIMENTO-BALNEARE.jpg'
 import ImageTwo from '../ombrelloni.jpeg'
 import ImageThree from '../ombrelloni3.jpg'
+import Marrakech from '../marrakesh.jpg'
+import Granchio from '../granchio.jpg'
+import Albatros from '../albatros.jpg'
+import HakunaMatata from '../hakunamatata.jpg'
+import Faro from '../faro.jpg'
+import FloridaBeach from '../floridabeach.jpg'
+import Oasi from '../oasi.jpeg'
+import Mexico from '../mexico.jpg'
 
 const label='Prenota il tuo ombrellone';
 export const CardsData = [
@@ -8,7 +16,7 @@ export const CardsData = [
         title: "Albatros",
         path:'/booking/Albatros',
         label:label,
-        image:ImageTwo,
+        image:Albatros,
         telefono:"+39 3289987676",
         email: "info.albatros@gmail.com",
         instagram:"Albatros_official",
@@ -18,14 +26,15 @@ export const CardsData = [
         prima_lettino: "10€",
         sec_terza_ombrellone: "13€",
         sec_terza_lettino: "8€",
-        altri_ombrellone: "11€",
-        altri_lettino: "6€"
+        altri_lettino: "6€",
+        altri_ombrellone: "11€"
+
     },
     {
         title: "HakunaMatata",
         path:'/booking/HakunaMatata',
         label:label,
-        image:ImageTwo,
+        image:HakunaMatata,
         telefono:"+39 3393084598",
         email: "info.hakunamatata@gmail.com",
         instagram:"Hakuna_Matata",
@@ -42,7 +51,7 @@ export const CardsData = [
         title:"Faro",
         path:'/booking/Faro',
         label:label,
-        image: ImageThree,
+        image: Faro,
         telefono:"+39 3336778989",
         email: "info.faro@gmail.com",
         instagram:"Bagno Faro",
@@ -59,7 +68,7 @@ export const CardsData = [
         title: "Marrakech",
         path:'/booking/Marrakech',
         label:label,
-        image: ImageOne,
+        image: Marrakech,
         telefono:"+39 3284432786",
         email: "info.marrakech@gmail.com",
         instagram:"Marrakech_official",
@@ -76,7 +85,7 @@ export const CardsData = [
         title:"Granchio",
         path:'/booking/Granchio',
         label:label,
-        image: ImageTwo,
+        image: Granchio,
         telefono:"+39 3346760908",
         email: "info.granchio@gmail.com",
         instagram:"Granchio PM",
@@ -95,7 +104,7 @@ export const CardsData = [
         title: "FloridaBeach",
         path:'/booking/FloridaBeach',
         label:label,
-        image: ImageThree,
+        image: FloridaBeach,
         telefono:"+39 3280098723",
         email: "info.albatros@gmail.com",
         instagram:"Florida_Beach",
@@ -112,7 +121,7 @@ export const CardsData = [
         title:"Oasi",
         path:'/booking/Oasi',
         label:label,
-        image: ImageOne,
+        image: Oasi,
         telefono:"+39 3346609898",
         email: "info.oasi@gmail.com",
         instagram:"OASI",
@@ -129,7 +138,7 @@ export const CardsData = [
         title: "Mexico",
         path:'/booking/Mexico',
         label:label,
-        image: ImageTwo,
+        image: Mexico,
         telefono:"+39 3394562344",
         email: "info.mexico@gmail.com",
         instagram:"Mexico_official",

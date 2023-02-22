@@ -11,7 +11,7 @@
     grid-template-columns: 1fr 1fr;
 }
 .cards-container-ext {
-
+    flexWrap:"nowrap";
     margin: 100px 20%;
     width: 1000px;
     position: fixed;
@@ -24,6 +24,7 @@
     grid-template-columns: 1fr 1fr;
 }
 .cards-container{
+    flexWrap:"nowrap";
     width: 1000px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
@@ -33,6 +34,7 @@
     display: grid;
     box-sizing: content-box;
     grid-template-columns: 1fr 1fr;
+
 
 }
 .contacts-container a{

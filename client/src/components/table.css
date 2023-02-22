@@ -1,3 +1,4 @@
+
 .Table{
     display: flex;
     flex-wrap: nowrap;
@@ -9,7 +10,6 @@
     width: 90%;
     height: 90%;
     margin: 30px auto 40px;
-
 }
 /*tbody{*/
 /*    display: flex;*/
@@ -34,6 +34,14 @@
     min-height: 60px;
     min-width: max-content;
     background: -webkit-linear-gradient(top right, #FFFFFF 0%, #AACFEF 100%);
+}
+.water {
+    flex-wrap: nowrap;
+    padding: 10px;
+    border: none;
+    min-height: 60px;
+    width: 60px;
+    background:  none;
 }
 
 *, *::before, *::after {
