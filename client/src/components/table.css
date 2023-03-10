@@ -35,14 +35,7 @@
     min-width: max-content;
     background: -webkit-linear-gradient(top right, #FFFFFF 0%, #AACFEF 100%);
 }
-.water {
-    flex-wrap: nowrap;
-    padding: 10px;
-    border: none;
-    min-height: 60px;
-    width: 60px;
-    background:  none;
-}
+
 
 *, *::before, *::after {
     box-sizing: border-box;

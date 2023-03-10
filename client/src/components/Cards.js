@@ -128,12 +128,9 @@ const Cards =({cards})=> {
     return (
 
         <body style={{overflowX: "auto"}}>
-
                 {cards.map((card, index) => {
                     return (
                         <>
-                        {/*<div className="cards-container-ext" key={index}>*/}
-
                             {index === current && (
                                 <div className="contacts-container" key={index}>
 

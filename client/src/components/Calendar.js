@@ -162,15 +162,6 @@ export const Calendar = ({ showModal, setShowModal, requestedDates, setRequested
                         <animated.div style={animation} className={"animation"}>
                             <ModalWrapper showModal={showModal}>
                                 <LeftBox>
-                                    {/*{openDate && (
-                                    <DateRange
-                                        style={{position:"initial"}}
-                                        editableDateInputs={true}
-                                        onChange={(item) => setDates([item.selection])}
-                                        minDate={new Date()}
-                                        ranges={dates}
-                                    />
-                                )}*/}
                                     <DateRange
                                         style={{position:"initial"}}
                                         format="DD-MM-YYYY"
@@ -185,43 +176,16 @@ export const Calendar = ({ showModal, setShowModal, requestedDates, setRequested
                                         } }
                                         startDate={date.startDate}
                                         endDate = {date.endDate}
-
                                         />
-                                    {/*<DateRange
-                                        style={{position:"initial"}}
-                                        format="DD-MM-YYYY"
-                                        minDate={new Date()}
-                                        editableDateInputs={true}
-                                        moveRangeOnFirstSelection={false}
-                                        ranges={dates}
-                                        onChange={item => {
-                                            setDates([item.selection]);
-                                            console.log(item);
-
-                                        } }
-                                    />*/}
-
-
-                                    {/*<RangePicker format="DD-MM-YYYY" onChange={filterByDate}/>*/}
-
-
                                 </LeftBox>
                                 <ModalContent>
                                     <h1>Are you ready?</h1>
-                                    {/*<Link to={"/booking/" + fromDate + "/" + toDate}>
-                                        <button onClick={handleSelect}>Search</button>
-                                    </Link>*/}
                                     <button onClick={handleSelect}>
                                         Search
                                     </button>
 
 
                                 </ModalContent>
-                                {/*<>
-                                        {data.map((item) => (
-                                            <SearchItem item={item} key={item._id} />
-                                        ))}
-                                    </>*/}
                                 <CloseModalButton
                                     aria-label='Close modal'
                                     onClick={() => setShowModal(prev => !prev)}

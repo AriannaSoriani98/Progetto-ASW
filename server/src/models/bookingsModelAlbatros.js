@@ -5,7 +5,6 @@ module.exports = function(mongoose) {
         dataFine: Date,
         fila: Number,
         postazione: Number,
-        nomeBagno: String,
     });
     return mongoose.model('BookingAlbatros', BookingAlbatrosSchema);
 };

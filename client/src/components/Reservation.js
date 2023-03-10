@@ -10,11 +10,11 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  
 `;
 
 const Column1 = styled.div`
   flex-direction: column;
-  padding-left:100px;
   margin:0px;
   height:100%;
   width: 100%;
@@ -26,6 +26,7 @@ const Column2 = styled.div`
   height:100%;
   width: 100%;
 `;
+
 const Button = styled.button`
   width: 280px;
   height: 100px;
@@ -38,15 +39,37 @@ const Button = styled.button`
   margin: auto;
 `;
 
-const Item = styled.li`
+const ItemSX = styled.li`
   display: flex;
   width: 100%;
   height:25%;
   background:none;
   border: none;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: right;
+  padding-right: 10%;
+`;
+const ItemDX = styled.li`
+  display: flex;
+  width: 100%;
+  height:25%;
+  background:none;
+  border: none;
+  align-items: center;
+  justify-content: left;
+  padding-left: 10%;
+`;
+
+const Title = styled.h1`
+  padding-left:5%;
+  padding-right:5%;
+  text-align: center;
+  padding-top: 5%;
+  width: max-content;
+  height: 100px;
+  background:rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 100px;
 `;
 
 
@@ -63,9 +86,15 @@ const Reservation = () =>{
 
         {/*<BookingCalendar />*/}
 
-        <Container>
+        <Container style={{overflow:"auto"}}>
+            <ItemDX>
+                <Title >
+                    Scegli il tuo bagno!
+                </Title>
+            </ItemDX>
+
             <Column1>
-                <Item>
+                <ItemSX>
 
                         <Link to="/booking/Albatros" >
                             <Button>
@@ -75,16 +104,16 @@ const Reservation = () =>{
 
 
                         </Link>
-                </Item>
-                <Item>
+                </ItemSX>
+                <ItemSX>
                         <Link to="/booking/HakunaMatata" >
                             <Button>
                                 <GiPalmTree/>
                                 Hakuna Matata
                             </Button>
                         </Link>
-                </Item>
-                <Item>
+                </ItemSX>
+                <ItemSX>
                         <Link to="/booking/Faro" >
                             <Button>
                                 <SiLighthouse/>
@@ -92,8 +121,8 @@ const Reservation = () =>{
                             </Button>
                         </Link>
 
-                </Item>
-                <Item>
+                </ItemSX>
+                <ItemSX>
                         <Link to="/booking/Marrakech" >
                             <Button>
                                 <GiSurfBoard/>
@@ -102,11 +131,14 @@ const Reservation = () =>{
                         </Link>
 
 
-                </Item>
+                </ItemSX>
             </Column1>
 
+
+
+
             <Column2>
-                <Item>
+                <ItemDX>
                         <Link to="/booking/Granchio" >
                             <Button>
                                 <GiSadCrab/>
@@ -114,8 +146,8 @@ const Reservation = () =>{
                             </Button>
                         </Link>
 
-                </Item>
-                <Item>
+                </ItemDX>
+                <ItemDX>
                         <Link to="/booking/FloridaBeach" >
                             <Button>
                                 <GiAtSea/>
@@ -123,8 +155,8 @@ const Reservation = () =>{
                             </Button>
                         </Link>
 
-                </Item>
-                <Item>
+                </ItemDX>
+                <ItemDX>
                         <Link to="/booking/Oasi" >
                             <Button>
                                 <GiOasis/>
@@ -132,8 +164,8 @@ const Reservation = () =>{
                             </Button>
                         </Link>
 
-                </Item>
-                <Item>
+                </ItemDX>
+                <ItemDX>
                         <Link to="/booking/Mexico" >
                             <Button>
                                 <IoSunny/>
@@ -141,7 +173,7 @@ const Reservation = () =>{
                             </Button>
                         </Link>
 
-                </Item>
+                </ItemDX>
             </Column2>
 
         </Container>

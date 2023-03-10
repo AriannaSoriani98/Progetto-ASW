@@ -2,7 +2,7 @@ import ImageOne from '../STABILIMENTO-BALNEARE.jpg'
 import ImageTwo from '../ombrelloni.jpeg'
 import ImageThree from '../ombrelloni3.jpg'
 
-const name='Playa Majorca';
+const name='Lido di Rimini';
 const label='Prenota il tuo ombrellone';
 
 export const HomeData = [

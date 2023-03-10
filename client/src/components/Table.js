@@ -18,7 +18,7 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
     const createTable = () => {
         let table = []
         let num_col = 11
-        let num_row = 9
+        let num_row = 8
         let middle = num_col/2 + 0.5
         let bookings_length = bookings.length;
         let no_available = [];
@@ -27,7 +27,8 @@ export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPla
 
         for(let z=0; z<bookings_length;z++){
             if( ((requestedDates[0]>=bookings[z].dataInizio) && (requestedDates[0] <=bookings[z].dataFine)) ||
-                ((requestedDates[0]<=bookings[z].dataInizio) && (requestedDates[1] <=bookings[z].dataFine) && requestedDates[1] >=bookings[z].dataInizio) ||
+                ((requestedDates[0]<=bookings[z].dataInizio) && (requestedDates[1] <=bookings[z].dataFine) &&
+                    requestedDates[1] >=bookings[z].dataInizio) ||
                 ((requestedDates[0]<=bookings[z].dataInizio) && (requestedDates[1] >=bookings[z].dataFine))) {
                 no_available.push(bookings[z]);
             }

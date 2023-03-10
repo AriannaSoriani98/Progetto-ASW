@@ -65,9 +65,6 @@ export const General = ({title,data})=> {
             .then(response =>{
                 let bookings= [];
                 bookings = response.data
-                /*reservations.forEach(function(umbrella) {
-                    if(umbrella.poster!=null) umbrella.poster = umbrella.poster.replace("http://ia.media-imdb.com/", "https://m.media-amazon.com/")
-                });*/
                 setIsLoading(false);
                 setLoadedBookings(bookings);
             })
@@ -104,7 +101,6 @@ export const General = ({title,data})=> {
                         console.log(response.status);
                         setEsito(true);
                         setText("Eliminazione avvenuta con successo!");
-
                     }
                 }
             ).catch(error =>{
@@ -114,7 +110,6 @@ export const General = ({title,data})=> {
         })
         setSuccessDelete(prev => !prev);
         console.log(_id);
-
     }
 
     const openModal = () => {
@@ -128,7 +123,7 @@ export const General = ({title,data})=> {
 
     return(
         <body>
-        <div className={"background"}>
+        <div className={"sfondo"}>
 
         <div className={"apice"}></div>
         <Button onClick={openModal}>Scegli il periodo</Button>

@@ -33,7 +33,7 @@ export class MapContainer extends Component {
                             lng: this.state.mapCenter.lng
                         }}
                         text={
-                            this.state.text = "Playa Majorca"
+                            this.state.text = "Lido di Rimini"
                         }
                     />
                 </Map>
