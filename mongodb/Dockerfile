@@ -108,7 +108,6 @@ VOLUME /data/db /data/configdb
 # https://github.com/docker-library/mongo/issues/524
 ENV HOME /data/db
 # MODIFICHE INTRODOTTE DA VITTORIO GHINI PER ASW E SYSTEMS INTEGRATION
-# VOLUME /data/db /data/configdb
 COPY ./mydbinit.js /docker-entrypoint-initdb.d/
 # per avere strumenti di debugging dentro ai container
 RUN	apt-get update 						&&	\

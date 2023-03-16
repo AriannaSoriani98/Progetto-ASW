@@ -8,7 +8,8 @@ global.appRoot = path.resolve(__dirname);
 
 var PORT = 3000;
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
+mongoose.connect('mongodb://mongodb:27017/dbsa', { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
 
 app.use(cors())
 

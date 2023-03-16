@@ -20,8 +20,8 @@ services:
       - 27017-27019:27017-27019
     networks:
       - interna
-#    volumes:
-#      - mydata:/data
+ #   volumes:
+ #     - mydata: ./mongodb/data
 
 networks:
   interna:
