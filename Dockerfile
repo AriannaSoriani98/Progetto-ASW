@@ -1,12 +1,12 @@
 FROM ubuntu:xenial
 
-ENV WORKINGDIR=/root/app
+ENV WORKINGDIR=/root/server
 
 WORKDIR ${WORKINGDIR}
 
 RUN	mkdir -p ${WORKINGDIR} && chmod 666 ${WORKINGDIR}
 
-COPY 	./app  ${WORKINGDIR}/
+COPY 	./server  ${WORKINGDIR}/
 
 RUN	apt-get -y update		&&	\
 	apt-get -y install apt-utils	&&	\
@@ -21,7 +21,7 @@ RUN	apt-get -y update		&&	\
 	apt-get -y install curl		&&	\
 	apt-get -y clean
 
-RUN	npm install
+
 
 EXPOSE 3000
 
