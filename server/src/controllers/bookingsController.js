@@ -19,6 +19,7 @@ exports.list_bookings_albatros = function(req, res) {
 
 exports.create_booking_albatros = function(req, res) {
 	var new_booking = new BookingAlbatros(req.body);
+	console.log('server added!')
 	new_booking.save(function(err, booking) {
 		if (err)
 			res.send(err);
@@ -27,7 +28,7 @@ exports.create_booking_albatros = function(req, res) {
 };
 
 exports.delete_Albatros = function(req, res) {
-	BookingAlbatros.deleteOne({_id: req.params.id}, function(err, result) {
+	BookingAlbatros.findByIdAndRemove(req.params.id, function(err, result) {
 		if (err)
 			res.send(err);
 		else{

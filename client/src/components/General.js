@@ -89,18 +89,19 @@ export const General = ({title,data})=> {
     }
 
     function OnDelete(_id){
-        axios.delete('http://localhost:3000//api/bookings'+title+'/${_id}')
+        axios.delete('http://localhost:3000/api/bookings'+title+'/'+ _id)
             .then(response=>{
                     if(response.status==404){
                         console.log('Not Found');
                         setText('Prenotazione non trovata!');
                         setEsito(false);
                     }
-                    else{
+                    else if(response.status==200){
                         console.log('Deleted');
                         console.log(response.status);
                         setEsito(true);
                         setText("Eliminazione avvenuta con successo!");
+
                     }
                 }
             ).catch(error =>{
@@ -112,6 +113,7 @@ export const General = ({title,data})=> {
         console.log(_id);
     }
 
+
     const openModal = () => {
         setShowModal(prev => !prev);
     };
@@ -119,6 +121,12 @@ export const General = ({title,data})=> {
     const openDelete = () => {
         setShowDelete(prev => !prev);
     };
+    const closePopup = () => {
+        setSuccessDelete(false);
+        //window.location.reload(true);
+        //document.location.reload();
+    };
+
 
 
     return(
@@ -130,7 +138,7 @@ export const General = ({title,data})=> {
 
         <Calendar showModal={showModal} setShowModal={setShowModal} requestedDates={requestedDates} setRequestedDates={setRequestedDates} />
         <Delete showDelete={showDelete} setShowDelete={setShowDelete} OnDelete={OnDelete} done={successDelete} setDone={setSuccessDelete}/>
-        {successDelete ? <Popup text={text} esito={esito} closePopup={() => setSuccessDelete(false)} /> : null}
+        {successDelete ? <Popup text={text} esito={esito} closePopup={closePopup} /> : null}
 
         <GlobalStyle />
 
@@ -139,7 +147,7 @@ export const General = ({title,data})=> {
         <Button2 onClick={openDelete}> Cancella prenotazione </Button2>
 
         <Booking showBooking={showBooking} setShowBooking={setShowBooking} requestedDates={requestedDates} requestedPlace={requestedPlace} OnAddedAlbatros={OnAdded} success={success} setSuccess={setSuccess} data={data}/>
-        {success ? <Popup text={text} esito={esito} closePopup={() => setSuccess(false)} /> : null}
+        {success ? <Popup text={text} esito={esito} closePopup={()=> setSuccess(false)} /> : null}
 
         </div>
         </body>

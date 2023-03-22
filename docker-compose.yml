@@ -5,8 +5,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+      args:
+        - IMAGE_VERSION=non_serve
     image: nodejsapp
 #    image: vic/debian.iptables.ifconfig
+    environment:
+      - MIAVAR=non_serve__solo_come_esempio
     ports:
       - 3000:3000
     networks:
@@ -15,13 +19,17 @@ services:
     build:
       context: ./mongodb
       dockerfile: Dockerfile
-    image: mongodb
+      args:
+        - IMAGE_VERSION=non_serve
+    image: mymongo
+    environment:
+      - MIAVAR=non_serve3__solo_come_esempio
     ports:
       - 27017-27019:27017-27019
     networks:
       - interna
- #   volumes:
- #     - mydata: ./mongodb/data
+#    volumes:
+#      - mydata:/data
 
 networks:
   interna:

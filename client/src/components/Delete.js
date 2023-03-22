@@ -129,6 +129,7 @@ export const Delete = ({ showDelete, setShowDelete, OnDelete }) => {
     }
 
     function SubmitHandler(){
+
         OnDelete(_id);
         console.log(_id);
         setShowDelete(prev => !prev);
@@ -148,7 +149,7 @@ export const Delete = ({ showDelete, setShowDelete, OnDelete }) => {
                             </LeftBox>
                             <ModalContent>
                                 <form onSubmit={SubmitHandler}>
-                                    <input type="text" id="_id" placeholder="Enter ID of your reservation" onChange={IDHandler}/>
+                                    <input type="text" id="id" placeholder="Enter ID of your reservation" onChange={IDHandler}/>
                                     <br/>
                                     <button type="submit">Delete</button>
                                 </form>

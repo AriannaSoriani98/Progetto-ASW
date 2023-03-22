@@ -4,7 +4,6 @@ module.exports = function(app) {
 	app.route('/api/bookingsAlbatros')
 		.get(bookingsController.list_bookings_albatros)
 		.post(bookingsController.create_booking_albatros);
-
 	app.route('/api/bookingsAlbatros/:id')
 		.delete(bookingsController.delete_Albatros);
 
