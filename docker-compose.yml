@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  reactapp:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: reactapp
+    ports:
+      - 3000:3000
+    networks:
+      - interna
   nodejsapp:
     build:
       context: ./
@@ -22,10 +31,8 @@ services:
       args:
         - IMAGE_VERSION=non_serve
     image: mymongo
-    environment:
-      - MIAVAR=non_serve3__solo_come_esempio
     ports:
-      - 27017-27019:27017-27019
+      - 27017:27017
     networks:
       - interna
 #    volumes:

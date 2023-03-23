@@ -7,27 +7,30 @@ var path = require('path');
 
 global.appRoot = path.resolve(__dirname);
 
-var PORT = 3000;
+var PORT = 8080;
 
 //mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
 /*mongoose.connect('mongodb://mongodb:27017/dbsa' ,{ useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
 //'mongodb://mongodb:27017/dbsa'*/
 //connessione al db
-/*mongoose
-    .connect('mongodb://progetto-asw_mongodb_1.progetto-asw_interna:27017/dbsa',
+mongoose
+    .connect('mongodb://localhost:27017/dbsa',
         { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true })
     .then(() => console.log('MongoDB Connected'))
-    .catch((err) => console.log(err));*/
+    .catch((err) => console.log(err));
 
-var url = 'mongodb://172.25.0.3/:27017/dbsa'; //docker inspect $CONTAINER_NAME | grep IPAddress
-mongoose.connect(
-    url,
-    { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true },
-    function (err) {
-      if (err){ console.log('Errore in connect');}
-      else { console.log('connect SEMBRA OK'); }
+/*mongoose.connect(
+    "mongodb://host.docker.internal:27017/task-management",
+    (err) => {
+        if (err) {
+            console.error("failed to connect to mongoDB");
+            console.error(err);
+        } else {
+            console.log("mongodb is running and secured");
+            app.listen(PORT);
+        }
     }
-);
+);*/
 
 /*mongoose
     .connect(

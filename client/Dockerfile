@@ -1,17 +1,27 @@
-FROM node:8
+FROM ubuntu:xenial
 
-# Create app directory
-ENV WORKDIR=/src/app
+ENV WORKINGDIR=/root/src
 
 WORKDIR ${WORKINGDIR}
 
-# Install app dependencies
-COPY package*.json ./
+RUN	mkdir -p ${WORKINGDIR} && chmod 666 ${WORKINGDIR}
 
-RUN npm install --silent
-# Copy app source code
-COPY 	. .  ${WORKINGDIR}/
+COPY 	./src  ${WORKINGDIR}/
+RUN	apt-get -y update		&&	\
+	apt-get -y install apt-utils	&&	\
+	apt-get -y install nodejs	&&	\
+	apt-get -y install npm		&&	\
+						\
+	apt-get -y install iptables	&&	\
+	apt-get -y install net-tools	&&	\
+	apt-get -y install netcat	&&	\
+	apt-get -y install iputils-ping	&&	\
+	apt-get -y install iproute2	&&	\
+	apt-get -y install curl		&&	\
+	apt-get -y clean
 
-#Expose port and start application
+
+
 EXPOSE 3000
-CMD ["npm", "start"]
+
+CMD ["npm","start"]

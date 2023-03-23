@@ -28,18 +28,16 @@ exports.create_booking_albatros = function(req, res) {
 };
 
 exports.delete_Albatros = function(req, res) {
+	let num_item = BookingAlbatros.length;
 	BookingAlbatros.findByIdAndRemove(req.params.id, function(err, result) {
-		if (err)
-			res.send(err);
+		if (err) {
+
+			res.status(404).send({
+				description: 'Booking not found'
+			});
+		}
 		else{
-			if(result.deletedCount==0){
-				res.status(404).send({
-					description: 'Booking not found'
-				});
-			}
-			else{
 				res.json({ message: 'Task successfully deleted' });
-			}
 		}
 	});
 };
