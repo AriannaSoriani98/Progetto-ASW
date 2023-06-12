@@ -1,6 +1,5 @@
-import './App.css';
-import 'animate.css';
-import {Route} from 'react-router-dom'
+import './App.scss';
+import {Route, Routes,Switch, BrowserRouter} from 'react-router-dom'
 import CardsPage from "./pages/CardsPage";
 import PlacePage from "./pages/PlacePage";
 import Navbar from "./components/Navbar";
@@ -14,6 +13,7 @@ import GranchioPage from "./pages/GranchioPage";
 import FloridaBeachPage from "./pages/FloridaBeachPage";
 import OasiPage from "./pages/OasiPage";
 import MexicoPage from "./pages/MexicoPage";
+import React from "react";
 
 //import { Helmet } from 'react-helmet';
 //const TITLE = 'Benvenuto'
@@ -25,19 +25,23 @@ function App() {
 
   return (
       <div class="row-container">
-          <Navbar/>
-            <Route path="/" exact><HomePage/></Route>
-            <Route path="/booking"><ReservationPage/></Route>
-            <Route path="/booking/Albatros"><AlbatrosPage/></Route>
-            <Route path="/booking/HakunaMatata"><HakunaMatataPage/></Route>
-            <Route path="/booking/Faro"><FaroPage/></Route>
-            <Route path="/booking/Marrakech"><MarrakechPage/></Route>
-            <Route path="/booking/Granchio"><GranchioPage/></Route>
-            <Route path="/booking/FloridaBeach"><FloridaBeachPage/></Route>
-            <Route path="/booking/Oasi"><OasiPage/></Route>
-            <Route path="/booking/Mexico"><MexicoPage/></Route>
-            <Route path="/schede"><CardsPage /></Route>
-            <Route path="/luogo"><PlacePage/></Route>
+        <Navbar/>
+
+        <Routes>          
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/booking" element={<ReservationPage/>}/>
+          <Route path="/booking/Albatros" element={<AlbatrosPage/>}/>
+          <Route path="/booking/HakunaMatata" element={<HakunaMatataPage/>}/>
+          <Route path="/booking/Faro" element={<FaroPage/>}/>
+          <Route path="/booking/Marrakech" element={<MarrakechPage/>}/>
+          <Route path="/booking/Granchio" element={<GranchioPage/>}/>
+          <Route path="/booking/FloridaBeach" element={<FloridaBeachPage/>}/>
+          <Route path="/booking/Oasi" element={<OasiPage/>}/>
+          <Route path="/booking/Mexico" element={<MexicoPage/>}/>
+          <Route path="/schede" element={<CardsPage/>} />
+          <Route path="/luogo" element={<PlacePage/>}/>
+         </Routes>
+
       </div>
 
   );

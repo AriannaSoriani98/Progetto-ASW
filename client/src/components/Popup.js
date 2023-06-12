@@ -1,8 +1,8 @@
 import React from "react";
 import "./popup.css";
 import styled from "styled-components";
-import {MdClose} from "react-icons/md";
-import {IoCheckmarkDoneCircleOutline, MdErrorOutline} from "react-icons/all";
+import {MdClose, MdErrorOutline} from "react-icons/md";
+import {IoCheckmarkDoneCircleOutline} from "react-icons/io5";
 
 const CloseBookingButton = styled(MdClose)`
   cursor: pointer;

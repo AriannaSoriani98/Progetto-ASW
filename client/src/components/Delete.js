@@ -1,13 +1,9 @@
 import {animated, useSpring} from "react-spring";
-import moment from "moment";
-import {DateRange} from "react-date-range";
 import React, { useRef, useEffect, useCallback, useState} from 'react';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import {DatePicker} from "antd";
-const {RangePicker} = DatePicker;
 
 const Background = styled.div`
   width: 100%;
@@ -22,6 +18,7 @@ const Background = styled.div`
   -o-background-size: cover;
   background-size: cover;
 `;
+
 
 const ModalWrapper = styled.div`
   width: 700px;
@@ -129,11 +126,9 @@ export const Delete = ({ showDelete, setShowDelete, OnDelete }) => {
     }
 
     function SubmitHandler(){
-
         OnDelete(_id);
         console.log(_id);
         setShowDelete(prev => !prev);
-
     }
 
 

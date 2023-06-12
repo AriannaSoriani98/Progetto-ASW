@@ -1,8 +1,40 @@
 import "./contatti.css"
-import {FaFacebookSquare, AiFillInstagram, AiOutlineMail, IoCallOutline, GiPositionMarker} from "react-icons/all";
-import GoogleMap from "./GoogleMap";
+import {FaFacebookSquare} from "react-icons/fa";
+import {AiFillInstagram, AiOutlineMail} from "react-icons/ai";
+import {IoCallOutline} from "react-icons/io5";
+import {GiPositionMarker} from "react-icons/gi";
+// import Maps from "./GoogleMap";
 import {Link} from "react-router-dom";
+import React, {useState} from "react";
+import lidorimini from "../images/lidorimini.jpg";
+import styled from "styled-components";
 
+const HomeImage=styled.img`
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &::before{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    bottom: 0vh;
+    left: 0;
+    overflow: hidden;
+    opacity: 0.4;
+    background: linear-gradient(
+            0deg,
+            rgba(0,0,0,0.2) 0%,
+            rgba(0,0,0,0.2) 50%,
+            rgba(0,0,0,0.6) 100%
+    );
+  }
+`;
 function Contatti() {
     return (
         <body style={{overflowX: "auto"}}>
@@ -13,7 +45,8 @@ function Contatti() {
                     </Link>
 
                 <div className="contact-left">
-                    <GoogleMap/>
+                    {/*<Maps/>*/}
+                    <HomeImage src={lidorimini}/>
                 </div>
                 <div className="contact-right">
                     <div className="contact">

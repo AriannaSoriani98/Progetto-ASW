@@ -1,6 +1,6 @@
-import ImageOne from '../STABILIMENTO-BALNEARE.jpg'
-import ImageTwo from '../ombrelloni.jpeg'
-import ImageThree from '../ombrelloni3.jpg'
+import ImageOne from '../images/STABILIMENTO-BALNEARE.jpg'
+import ImageTwo from '../images/ombrelloni.jpeg'
+import ImageThree from '../images/ombrelloni3.jpg'
 
 const name='Lido di Rimini';
 const label='Prenota il tuo ombrellone';

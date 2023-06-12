@@ -9,14 +9,6 @@ import axios from "axios";
 import {Popup} from "./Popup";
 import "./home.css";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
-
 const Button = styled.button`
   
   width: 180px;
@@ -61,7 +53,7 @@ export const General = ({title,data})=> {
     console.log(data);
 
     useEffect(()=>{
-        axios.get('http://localhost:8080/api/bookings'+title)
+        axios.get('/api/bookings'+title)
             .then(response =>{
                 let bookings= [];
                 bookings = response.data
@@ -72,7 +64,7 @@ export const General = ({title,data})=> {
 
     function OnAdded(booking) {
         setIsLoading(true)
-        axios.post("http://localhost:8080/api/bookings"+title, booking)
+        axios.post("/api/bookings"+title, booking)
             .then( response => {
                 //console.log(response.data);
                 const newList = loadedBookings;
@@ -89,7 +81,7 @@ export const General = ({title,data})=> {
     }
 
     function OnDelete(_id){
-        axios.delete('http://localhost:8080/api/bookings'+title+'/'+ _id)
+        axios.delete('/api/bookings'+title+'/'+ _id)
             .then(response=>{
                     if(response.status==404){
                         console.log('Not Found');
@@ -125,7 +117,7 @@ export const General = ({title,data})=> {
     const closePopup = () => {
         setSuccessDelete(false);
         //window.location.reload(true);
-        //document.location.reload();
+        document.location.reload();
     };
 
 

@@ -1,23 +1,14 @@
 import styled, {css} from "styled-components";
 import {IoArrowBack, IoArrowForward} from "react-icons/io5";
 import {IoMdArrowRoundForward} from "react-icons/io";
+import {IoCallOutline} from "react-icons/io5";
 import React,{useState,useRef,useEffect} from 'react'
-import {Link} from "react-router-dom";
-import {GiTable,AiFillInstagram, AiOutlineMail, FaFacebookSquare, GiPositionMarker, IoCallOutline, BiEuro, FaUmbrellaBeach} from "react-icons/all";
+import {GiPositionMarker} from "react-icons/gi";
+import {AiFillInstagram, AiOutlineMail} from "react-icons/ai"; 
+import {FaFacebookSquare} from "react-icons/fa";
+import {BiEuro} from "react-icons/bi";
 import "./contatti.css";
 
-const HomeWrapper=styled.div`
-  margin: 100px auto;
-  width: 1000px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
-  box-sizing: border-box;
-  border-radius: 10px;
-  height: 600px;
-  display: grid;
-  box-sizing: content-box;
-  grid-template-columns: 1fr 1fr;
-`;
 
 const HomeImage=styled.img`
   position: absolute;
@@ -65,9 +56,6 @@ const HomeContent=styled.div`
   }
 
 `;
-const Arrow=styled(IoMdArrowRoundForward)`
-  margin-left: 0.5rem;
-`;
 
 const SliderButtons=styled.div`
   position: absolute;
@@ -99,8 +87,6 @@ const PrevArrow=styled(IoArrowBack)`
 const NextArrow=styled(IoArrowForward)`
   ${arrowButtons}
 `;
-
-
 
 const Cards =({cards})=> {
     const [current,setCurrent]=useState(0)
@@ -299,7 +285,6 @@ const Cards =({cards})=> {
                     )
                 })}
 
-            {/*</HomeWrapper>*/}
             <SliderButtons>
                 <PrevArrow onClick={prevSlide}/>
                 <NextArrow onClick={nextSlide}/>

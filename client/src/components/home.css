@@ -3,7 +3,7 @@ body{
     height: 100%;
     top: 0;
     left: 0;
-    background: url("/src/STABILIMENTO-BALNEARE.jpg")no-repeat center top;
+    background: url("/src/images/STABILIMENTO-BALNEARE.jpg")no-repeat center top;
     position: fixed;
     z-index: -1;
     -webkit-background-size: cover;
@@ -35,7 +35,7 @@ body{
     height: 100%;
     top: 0;
     left: 0;
-    background: url("/src/acqua2.jpg") no-repeat center top;
+    background: url("/src/images/acqua2.jpg") no-repeat center top;
     position: fixed;
     z-index: -1;
     -webkit-background-size: cover;

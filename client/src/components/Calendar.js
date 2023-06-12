@@ -6,8 +6,7 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import moment from 'moment';
-import {DatePicker} from "antd";
-const {RangePicker} = DatePicker;
+
 
 
 const Background = styled.div`
@@ -156,7 +155,6 @@ export const Calendar = ({ showModal, setShowModal, requestedDates, setRequested
 
         return (
             <>
-
                 {showModal ? (
                     <Background onClick={closeModal} ref={modalRef} className={"background"}>
                         <animated.div style={animation} className={"animation"}>

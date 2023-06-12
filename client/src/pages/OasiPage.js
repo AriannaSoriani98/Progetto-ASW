@@ -1,6 +1,7 @@
 import {General} from "../components/General";
 import {useEffect} from "react";
 import {CardsData} from "../data/CardsData";
+import React from "react";
 
 function OasiPage() {
 

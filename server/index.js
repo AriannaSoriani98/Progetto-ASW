@@ -7,38 +7,13 @@ var path = require('path');
 
 global.appRoot = path.resolve(__dirname);
 
-var PORT = 8080;
+var PORT = 3000;
 
-//mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
-/*mongoose.connect('mongodb://mongodb:27017/dbsa' ,{ useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true });
-//'mongodb://mongodb:27017/dbsa'*/
-//connessione al db
 mongoose
-    .connect('mongodb://localhost:27017/dbsa',
+    .connect('mongodb://127.0.0.1:27017/dbsa',
         { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true })
     .then(() => console.log('MongoDB Connected'))
     .catch((err) => console.log(err));
-
-/*mongoose.connect(
-    "mongodb://host.docker.internal:27017/task-management",
-    (err) => {
-        if (err) {
-            console.error("failed to connect to mongoDB");
-            console.error(err);
-        } else {
-            console.log("mongodb is running and secured");
-            app.listen(PORT);
-        }
-    }
-);*/
-
-/*mongoose
-    .connect(
-        'mongodb://mongodb.interna:27017/dbsa',
-        // 'mongodb://asw_mongodb_1.asw_interna:27017/dbsa', ANDAVA BENE
-        { useNewUrlParser: true })
-    .then(() => console.log('MongoDB Connected'))
-    .catch((err) => console.log(err));*/
 
 app.use(cors())
 

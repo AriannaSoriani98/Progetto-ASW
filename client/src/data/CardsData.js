@@ -1,14 +1,11 @@
-import ImageOne from '../STABILIMENTO-BALNEARE.jpg'
-import ImageTwo from '../ombrelloni.jpeg'
-import ImageThree from '../ombrelloni3.jpg'
-import Marrakech from '../marrakesh.jpg'
-import Granchio from '../granchio.jpg'
-import Albatros from '../albatros.jpg'
-import HakunaMatata from '../hakunamatata.jpg'
-import Faro from '../faro.jpg'
-import FloridaBeach from '../floridabeach.jpg'
-import Oasi from '../oasi.jpeg'
-import Mexico from '../mexico.jpg'
+import Marrakech from '../images/marrakesh.jpg'
+import Granchio from '../images/granchio.jpg'
+import Albatros from '../images/albatros.jpg'
+import HakunaMatata from '../images/hakunamatata.jpg'
+import Faro from '../images/faro.jpg'
+import FloridaBeach from '../images/floridabeach.jpg'
+import Oasi from '../images/oasi.jpeg'
+import Mexico from '../images/mexico.jpg'
 
 const label='Prenota il tuo ombrellone';
 export const CardsData = [

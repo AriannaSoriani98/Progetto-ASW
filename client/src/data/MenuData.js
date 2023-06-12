@@ -1,5 +1,8 @@
 import React from 'react'
-import {AiFillHome, FiShoppingBag, SiGooglemaps, TiContacts} from "react-icons/all";
+import {AiFillHome} from "react-icons/ai";
+import {FiShoppingBag} from "react-icons/fi";
+import {SiGooglemaps} from "react-icons/si";
+import {TiContacts} from "react-icons/ti";
 
 export const MenuData = [
     {

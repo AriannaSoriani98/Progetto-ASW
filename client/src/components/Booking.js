@@ -3,7 +3,6 @@ import { useSpring, animated } from 'react-spring';
 import styled from "styled-components";
 import {MdClose} from "react-icons/md";
 import moment from 'moment';
-import {CardsData} from "../data/CardsData";
 
 const Background = styled.div`
   width: 100%;
@@ -74,9 +73,6 @@ const CloseBookingButton = styled(MdClose)`
 const B = styled.b`
   color: red;
 `;
-
-
-
 
 export const Booking = ({showBooking, setShowBooking, requestedDates, requestedPlace, OnAddedAlbatros,data})=> {
 
@@ -180,7 +176,6 @@ export const Booking = ({showBooking, setShowBooking, requestedDates, requestedP
     return(
       <>
           {showBooking ? (
-
               <Background onClick={closeBooking} ref={bookingRef} className={"background"}>
                   <animated.div style={animation} className={"animation"}>
                       <ModalWrapper showBooking={showBooking}>

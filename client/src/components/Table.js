@@ -1,5 +1,8 @@
 import "./table.css"
-import {FaUmbrellaBeach, IoMan, CgUnavailable,FaWater} from "react-icons/all";
+import {FaUmbrellaBeach} from "react-icons/fa";
+import {IoMan} from "react-icons/io5";
+import {CgUnavailable} from "react-icons/cg";
+import React from "react";
 
 export const Table = ({requestedDates, bookings, requestedPlace, setRequestedPlace, showBooking, setShowBooking}) =>{
 

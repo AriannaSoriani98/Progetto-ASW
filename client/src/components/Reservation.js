@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import React from 'react'
 import { Link } from 'react-router-dom';
-import {GiPalmTree,GiSeagull,SiLighthouse, GiSurfBoard,GiSadCrab,GiAtSea,GiOasis,IoSunny} from "react-icons/all";
+import {GiPalmTree,GiSeagull,GiSurfBoard,GiSadCrab,GiAtSea,GiOasis} from "react-icons/gi";
+import {SiLighthouse} from "react-icons/si";
+import {IoSunny} from "react-icons/io5";
 import "./home.css";
 
 const Container = styled.div`
