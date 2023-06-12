@@ -71,7 +71,7 @@ function Contatti() {
                                 E-mail:
                             </div>
                             <div class="content">
-                                info@playamayorca.com
+                                info@lidorimini.com
                             </div>
                         </div>
                         <div className="contact-type">
@@ -80,9 +80,9 @@ function Contatti() {
                             </div>
                             <div className="content">
                                 <AiFillInstagram/>
-                                Playa_Mayorca <br/>
+                                Lido_Rimini <br/>
                                 <FaFacebookSquare/>
-                                Playa Mayorca
+                                Lido Rimini
                             </div>
                         </div>
                         <div className="contact-type">
