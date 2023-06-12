@@ -11,7 +11,7 @@ var PORT = 3000;
 
 mongoose
     .connect('mongodb://127.0.0.1:27017/dbsa',
-        { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true })
+        { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB Connected'))
     .catch((err) => console.log(err));
 
@@ -21,7 +21,7 @@ app.use(cors())
 //Per gestire i parametri passati nel corpo della richiesta http.
 app.use(express.json());
 
-var routes = require('./src/routes/bookingsRoutes');
+var routes = require('./routes');
 routes(app);
 
 app.use(function(req, res) {
@@ -29,5 +29,5 @@ app.use(function(req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log('Node API server started on port '+PORT);
+  console.log('Node API server started on port '+PORT + 'at '+ path);
 });
